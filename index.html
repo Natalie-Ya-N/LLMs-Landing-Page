@@ -72,50 +72,61 @@
 
         a,
         a.visited {
-        color: inherit;
-        text-decoration: none;
+            color: inherit;
+            text-decoration: none;
         }
 
         a:hover {
-        color: rgb(0, 244, 0);
-        background-color: rgb(3, 31, 2);
+            color: rgb(0, 244, 0);
+            background-color: rgb(3, 31, 2);
         }
 
-
-        
         button {
-        border: none;
-        background-color: #ff6600;
-        color: white;
-        font-size: 0.8rem;
-        padding: 0px 0px;
-        padding-left: 6px;
-        padding-right: 6px;
-        margin-top: -7px;
-        margin-bottom: -7px;
-        cursor: pointer;
-        border-radius: 5px;
-
+            border: none;
+            background-color: #ff6600;
+            color: white;
+            font-size: 0.8rem;
+            padding: 0px 0px;
+            padding-left: 6px;
+            padding-right: 6px;
+            margin-top: -7px;
+            margin-bottom: -7px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
         .float-right {
-        float: right;
-        margin-right: 2.5%;
+            float: right;
+            margin-right: 2.5%;
+        }
+
+        .button-searchplanner {
+            /* only for PoeSearchPlanner */
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-top: 3%;
+            padding-left: 10px;
+            padding-right: 10px;
+            border: 1px solid #ff6600;
+            border-radius: 5px;
+            background-color: transparent;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         footer {
-        text-align: center;
-        font-size: 1rem;
-        margin: 2em
+            text-align: center;
+            font-size: 1rem;
+            margin: 2em
         }
         
         #footer img {
-        display: block;
-        margin: 0 auto;
-        max-width: 95%;
-        max-height: 100%;
-        mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-
+            display: block;
+            margin: 0 auto;
+            max-width: 95%;
+            max-height: 100%;
+            mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+        }
     </style>
 </head>
 
@@ -125,7 +136,9 @@
     <div class="flex-container">
         <div class="section">
             <h2 class="header">LLMs</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://chat.openai.com/">ChatGPT<span style="font-size: 0.8em; font-style: italic;"> by OpenAI</span></a></li>
                 <li class="item"><a href="https://copilot.microsoft.com/">Microsoft Copilot</a></li>
@@ -136,9 +149,9 @@
                 <li class="item"><a href="https://pi.ai/talk">Pi, personal AI</a></li>
             </ul>
         </div>
+        
         <div class="section">
-            <h2 class="header">
-            Search
+            <h2 class="header">Search
             <button class="float-right" onclick="openall1()">Open ALL</button>
             <script>
                 function openall1() {
@@ -162,21 +175,20 @@
             <hr style=border-color:#ff6600>
        
             <ul>
-            <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
-            <li class="item"><a href="https://poe.com/Web-Search">Poe / Web-Search</a></li>
-            <li class="item"><a href="https://you.com/">YOU.com<br/></a></li>
-            <li class="item"><a href="https://chat.openai.com/g/g-p1uPsAIqW-super-search">ChatGPT / Super Search<br/></a></li>
-            <li class="item"><a href="https://www.phind.com/search?home=true">Phind</a></li>
-            <li class="item"><a href="https://metaphor.systems/">Metaphor Search</a></li>
-            <li class="item"><a href="https://www.findera.ai/">Findera<span style="font-size: 0.8em; font-style: italic;"> powered by Groq</span></a></li>
-            <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
-            
-            <a href="https://poe.com/Search_Planner"><span style="line-height: 2em; text-decoration:overline; font-size: 0.9rem; "> &nbsp⨠ Poe / Search Planner &nbsp</span></a>
-        </ul>
+                <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
+                <li class="item"><a href="https://poe.com/Web-Search">Poe / Web-Search</a></li>
+                <li class="item"><a href="https://you.com/">YOU.com<br/></a></li>
+                <li class="item"><a href="https://chat.openai.com/g/g-p1uPsAIqW-super-search">ChatGPT / Super Search<br/></a></li>
+                <li class="item"><a href="https://www.phind.com/search?home=true">Phind</a></li>
+                <li class="item"><a href="https://metaphor.systems/">Metaphor Search</a></li>
+                <li class="item"><a href="https://www.findera.ai/">Findera<span style="font-size: 0.8em; font-style: italic;"> powered by Groq</span></a></li>
+                <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
+                
+                <a href="https://poe.com/Search_Planner" target="_blank" class="button-searchplanner">Poe / Search Planner</a>
+            </ul>
         </div>
       
         <div class="section">
-                
             <h2 class="header">Search #大陆
             <button class="float-right" onclick="openall2()">Open ALL</button>
             <script>
@@ -196,10 +208,10 @@
             <hr style=border-color:#ff6600>
                             
             <ul>
-            <li class="item"><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
-            <li class="item"><a href="https://so.360.com/">360 AI 搜索</a></li>
-            <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
-            </ul>
+                <li class="item"><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
+                <li class="item"><a href="https://so.360.com/">360 AI 搜索</a></li>
+                <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
+                </ul>
         </div>
     </div>
 
@@ -207,7 +219,9 @@
     <div class="flex-container">
         <div class="section">
             <h2 class="header">Playground / API</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://chat.lmsys.org/">Chatbot Arena<span style="font-size: 0.8em; font-style: italic;"> by GitHub</span></a></li>
                 <li class="item"><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
@@ -216,13 +230,14 @@
                 <li class="item"><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
                 <li class="item"><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
                 <li class="item"><a href="https://opengpts-example-vz4y4ooboq-uc.a.run.app/">OpenGPTs<span style="font-size: 0.8em; font-style: italic;"> by Langchain #closed</span></a></li>
-
             </ul>
         </div>
         
         <div class="section">
             <h2 class="header">Multiple LLMs</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://poe.com/">Poe<span style="font-size: 0.8em; font-style: italic;"> by Quora</span></a></li>
                 <li class="item"><a href="https://huggingface.co/chat/">HuggingChat<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face #open-source only</span></a></li>
@@ -234,13 +249,17 @@
         
     </div>
 
+
     <br>
     <br>
     
+
     <div class="flex-container">
         <div class="section">
             <h2 class="header">WIKI</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://explorer.globe.engineer/">Globe Explorer</a></li>
                 <li class="item"><a href="https://devv.ai/zh">DEVV</a></li>
@@ -248,9 +267,12 @@
                 <li class="item"><a href="https://consillium.vercel.app/">Consillium<span style="font-size: 0.8em; font-style: italic;"> via vercel</span></a></li>
             </ul>
         </div>
+
         <div class="section">
             <h2 class="header">Summarizing YouTube Video</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://summarize.ing/en">Summarize.ing<span style="font-size: 0.8em; font-style: italic;"> #20/day</span></a></li>
                 <li class="item"><a href="https://www.summarize.tech/">Summarize.tech<span style="font-size: 0.8em; font-style: italic;"> #daily limits</span></a>
@@ -264,7 +286,9 @@
     <div class="flex-container">
         <div class="section">
             <h2 class="header">Reading Academic Papers</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus">ChatGPT /  Consensus</a></li>
                 <li class="item"><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners">ChatGPT / Academic Paper Summary for Learners</a></li>
@@ -274,23 +298,27 @@
                 <li class="item"><a href="https://yiyibooks.cn/">一译<span style="font-size: 0.8em; font-style: italic;"> #Translation</span></a></li>
             </ul>
         </div>
+
         <div class="section">
             <h2 class="header">Writing</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://app.wordtune.com/">Wordtune</a></li>
                 <li class="item"><a href="https://robbiefrontend.z22.web.core.windows.net/">Robbie Email Writer</a></li>
                 <li class="item"><a href="https://poe.com/10_Alt_Phrasings">Poe / 10 Alt. Phrasings</a></li>
             </ul>
         </div>
-
     </div>
 
 
     <div class="flex-container">
         <div class="section">
             <h2 class="header">Hunting AI Tools</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="https://www.producthunt.com/">Product Hunt</a></li>
                 <li class="item"><a href="https://www.futurepedia.io/">Futurepedia</a></li>
@@ -300,9 +328,12 @@
                 <li class="item"><a href="https://www.similarsites.com/">SimilarSites<span style="font-size: 0.8em; font-style: italic;"> #find alternatives</span></a></li>
             </ul>
         </div>
+
         <div class="section">
             <h2 class="header">XXX 占位</h2>
+
             <hr style=border-color:#ff6600>
+
             <ul>
                 <li class="item"><a href="XXX">XXX<span style="font-size: 0.8em; font-style: italic;"> #XXX</span></a></li>
                 <li class="item"><a href="XXX">XXX<span style="font-size: 0.8em; font-style: italic;"> #XXX</span></a>
@@ -313,11 +344,11 @@
     </div>
 
     <footer>
-    © Natalie
+        © Natalie
     </footer>
     
     <div id="footer">
-    <img src="image.jpg" alt="Image">
+        <img src="image.jpg" alt="Image">
     </div>
 
 
