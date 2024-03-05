@@ -81,6 +81,28 @@
         background-color: rgb(3, 31, 2);
         }
 
+
+        
+        button {
+        border: none;
+        background-color: #ff6600;
+        color: white;
+        font-size: 0.8rem;
+        padding: 0px 0px;
+        padding-left: 6px;
+        padding-right: 6px;
+        margin-top: -7px;
+        margin-bottom: -7px;
+        cursor: pointer;
+        border-radius: 5px;
+
+        }
+
+        .float-right {
+        float: right;
+        margin-right: 2.5%;
+        }
+
         footer {
         text-align: center;
         font-size: 1rem;
@@ -117,10 +139,26 @@
         <div class="section">
             <h2 class="header">
             Search
-                <span style="text-align: right; font-style: italic; display: flex; justify-content: flex-end;">
-                <a href="#" onclick="window.open('https://www.perplexity.ai/', '_blank');  window.open('https://poe.com/', '_blank'); window.open('https://you.com/', '_blank');  window.open('https://chat.openai.com/g/g-p1uPsAIqW-super-search', '_blank'); window.open('https://www.phind.com/search?home=true', '_blank'); window.open('https://metaphor.systems/', '_blank'); window.open('https://www.findera.ai/', '_blank');window.open('https://komo.ai/', '_blank');"> ⨠ Open ALL 
-                </span>
-                </h2>
+            <button class="float-right" onclick="openall1()">Open ALL</button>
+            <script>
+                function openall1() {
+                var links = [
+                    "https://www.perplexity.ai/",
+                    "https://poe.com/",
+                    "https://you.com/",
+                    "https://chat.openai.com/g/g-p1uPsAIqW-super-search",
+                    "https://www.phind.com/search?Home=true",
+                    "https://metaphor.systems/",
+                    "https://www.findera.ai/",
+                    "https://komo.ai/"
+                ];
+                for (var i = 0; i < links.length; i++) {
+                    window.open(links[i], "_blank");
+                }
+                }
+            </script>
+            </h2>
+
             <hr style=border-color:#ff6600>
        
             <ul>
@@ -133,25 +171,35 @@
             <li class="item"><a href="https://www.findera.ai/">Findera<span style="font-size: 0.8em; font-style: italic;"> powered by Groq</span></a></li>
             <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
             
-
             <a href="https://poe.com/Search_Planner"><span style="line-height: 2em; text-decoration:overline; font-size: 0.9rem; "> &nbsp⨠ Poe / Search Planner &nbsp</span></a>
         </ul>
         </div>
       
         <div class="section">
                 
-            <h2 class="header">Search(大陆)
-                <span style="text-align: right; font-style: italic; display: flex; justify-content: flex-end;">
-                <a href="#" onclick="window.open('https://metaso.cn/', '_blank'); window.open('https://so.360.com/');  window.open('https://search.tiangong.cn/', '_blank');"> ⨠ Open ALL
-                </span>
+            <h2 class="header">Search #大陆
+            <button class="float-right" onclick="openall2()">Open ALL</button>
+            <script>
+                function openall2() {
+                var links = [
+                    "https://metaso.cn/",
+                    "https://so.360.com/",
+                    "https://search.tiangong.cn/"
+                ];
+                for (var i = 0; i < links.length; i++) {
+                    window.open(links[i], "_blank");
+                }
+                }
+            </script>
             </h2>
+
             <hr style=border-color:#ff6600>
                             
-        <ul>
+            <ul>
             <li class="item"><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
             <li class="item"><a href="https://so.360.com/">360 AI 搜索</a></li>
             <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
-        </ul>
+            </ul>
         </div>
     </div>
 
@@ -165,8 +213,10 @@
                 <li class="item"><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
                 <li class="item"><a href="https://platform.openai.com/">OpenAI Playground</a></li>
                 <li class="item"><a href="https://console.groq.com/playground">Groq Playground</a></li>
-                <li class="item"><a href="https://opengpts-example-vz4y4ooboq-uc.a.run.app/">OpenGPTs<span style="font-size: 0.8em; font-style: italic;"> by Langchain #closed</span></a></li>
+                <li class="item"><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
                 <li class="item"><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
+                <li class="item"><a href="https://opengpts-example-vz4y4ooboq-uc.a.run.app/">OpenGPTs<span style="font-size: 0.8em; font-style: italic;"> by Langchain #closed</span></a></li>
+
             </ul>
         </div>
         
@@ -220,7 +270,8 @@
                 <li class="item"><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners">ChatGPT / Academic Paper Summary for Learners</a></li>
                 <li class="item"><a href="https://chat.openai.com/g/g-2snGs5H6C-academic-paper-summary-by-chapter">ChatGPT / Academic Paper Summary by Chapter</a></li>
                 <li class="item"><a href="https://notebooklm.google/?location=us-only">Google NotebookLM<span style="font-size: 0.8em; font-style: italic;"> #US Only</span></a></li>
-                <li class="item"><a href="https://typeset.io/">SciSpace</a></li>
+                <li class="item"><a href="https://typeset.io/">SciSpace</a></li>                
+                <li class="item"><a href="https://yiyibooks.cn/">一译<span style="font-size: 0.8em; font-style: italic;"> #Translation</span></a></li>
             </ul>
         </div>
         <div class="section">
