@@ -115,6 +115,24 @@
             cursor: pointer;
         }
 
+        #back-to-top {
+            position: fixed;
+            right: 50%;
+            bottom: 20px;
+            transform: translate(50%, -50%);
+            z-index: 999;
+            width: 130px;
+            height: 28px;
+            border: none;
+            background-color: #d8d6d5a3;
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            line-height: 28px;
+        }
+
         footer {
             text-align: center;
             font-size: 1rem;
@@ -124,6 +142,7 @@
         #footer img {
             display: block;
             margin: 0 auto;
+            margin-bottom: 4rem;
             max-width: 95%;
             max-height: 100%;
             mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
@@ -133,13 +152,13 @@
 
 
 <body>
-    
+
     <div style="text-align: right;">
         <span style="margin-right: 30px;">
             <a href="javascript:void(0);" onclick="window.location.href='index.html';" class="button-searchplanner">Desktop View</a>
         </span>
     </div>
-    
+
     <div class="section">
         <h2 class="header">LLMs</h2>
 
@@ -249,6 +268,7 @@
             <li class="item"><a href="https://groq.com/">Groq<span style="font-size: 0.8em; font-style: italic;"> #open-source only</span></a></li>
             <li class="item"><a href="https://chat.forefront.ai/">Forefront</a></li>
             <li class="item"><a href="https://web.chatboxai.app/">ChatBox<span style="font-size: 0.8em; font-style: italic;"> #w. API</span></a></li>
+            <li class="item"><a href="https://www.chatbotui.com/">Chatbot UI<span style="font-size: 0.8em; font-style: italic;"> #w. API</span></a></li>
         </ul>
     </div>
     
@@ -335,6 +355,12 @@
         </ul>
     </div>
 
+    <div id="back-to-top">Back to Top</div>
+    <script>
+      document.getElementById('back-to-top').addEventListener('click', function() {
+        window.scrollTo(0, 0);
+      });
+    </script>
 
     <footer>
         © Natalie
