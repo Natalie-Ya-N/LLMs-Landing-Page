@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin-top: 5px;
+            margin-top: 20px;
             margin-bottom: 50px;
             padding: 0;
             background: #1b2736;
@@ -25,7 +25,7 @@
             padding-bottom: 1rem;
             padding-left: 1rem;
             padding-right: 1rem;
-
+            border-radius: 18px;
             background-color: #3c3b3e67;
         }
         
@@ -35,6 +35,7 @@
             margin-top: 20px;
             margin-bottom: 20px;
             padding-bottom: 1px;
+            padding-left: 5px;
         }
 
         h1,
@@ -51,7 +52,7 @@
         ul {
             list-style: none;
             padding: 0em;
-            margin-top: 0em;
+            margin-top: 0.5em;
             margin-bottom: 0em;
         }
 
@@ -59,7 +60,7 @@
             padding: 0px;
             display: flex;
             align-items: center;
-            margin-top: 0.2em;
+            margin-top: 0.5em;
             font-size: 0.9rem;
         }
 
@@ -131,12 +132,69 @@
             cursor: pointer;
             border-radius: 5px;
             line-height: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
+        }
+
+        /* 悬浮按钮样式 */
+        .menu-button {
+            position: fixed;
+            right: 50%;
+            bottom: 60px;
+            transform: translate(50%, -50%);
+            z-index: 999;
+            width: 130px;
+            height: 28px;
+            border: none;
+            background-color: #d8d6d5a3;
+            font-size: 0.9rem;
+            color: #ffffff;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            line-height: 28px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
+        }
+
+        .menu {
+            position: fixed;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75%;
+            min-height: 100px; /* 设置最小高度以确保内容空间 */
+            background-color: #d8d6d5;
+            color: black; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影以产生悬浮效果 */
+            border-radius: 10px; /* 添加圆角以软化设计 */
+            padding: 20px; /* 添加内边距以改善内容的显示 */
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+            /* 菜单项样式 */
+        .menu-item {
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+            /* 菜单项选中样式 */
+        .menu-item:hover {
+            background-color: #f5f5f5;
         }
 
         footer {
             text-align: center;
             font-size: 1rem;
-            margin: 2em
+            margin-top: 2em;
         }
         
         #footer img {
@@ -147,11 +205,15 @@
             max-height: 100%;
             mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
         }
+
+
     </style>
 </head>
 
 
 <body>
+
+
 
     <div style="text-align: right;">
         <span style="margin-right: 30px;">
@@ -212,6 +274,8 @@
             <li class="item"><a href="https://metaphor.systems/">Metaphor Search</a></li>
             <li class="item"><a href="https://www.findera.ai/">Findera<span style="font-size: 0.8em; font-style: italic;"> powered by Groq</span></a></li>
             <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
+
+            <br /> 
             
             <a href="https://poe.com/Search_Planner" target="_blank" class="button-searchplanner">Poe / Search Planner</a>
         </ul>
@@ -257,7 +321,7 @@
             <li class="item"><a href="https://console.groq.com/playground">Groq Playground</a></li>
             <li class="item"><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
             <li class="item"><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
-            <li class="item"><a href="https://opengpts-example-vz4y4ooboq-uc.a.run.app/">OpenGPTs<span style="font-size: 0.8em; font-style: italic;"> by Langchain #closed</span></a></li>
+            <li class="item"><a href="https://opengpts-example-vz4y4ooboq-uc.a.run.app/">OpenGPTs<span style="font-size: 0.8em; font-style: italic;"> by Langchain</span></a></li>
         </ul>
     </div>
     
@@ -365,6 +429,75 @@
         window.scrollTo(0, 0);
       });
     </script>
+
+
+
+<div class="menu-button">Menu</div>
+
+    <div class="menu">
+        <div class="menu-item" data-target="#heading-1">LLMs</div>
+        <div class="menu-item" data-target="#heading-2">Search</div>
+        <div class="menu-item" data-target="#heading-3">Search #大陆</div>
+        <div class="menu-item" data-target="#heading-1">Playground / API</div>
+        <div class="menu-item" data-target="#heading-2">Multiple LLMs</div>
+        <div class="menu-item" data-target="#heading-3">WIKI</div>
+        <div class="menu-item" data-target="#heading-3">Summarizing YouTube Video</div>    
+        <div class="menu-item" data-target="#heading-3">Reading Academic Papers</div>
+        <div class="menu-item" data-target="#heading-3">Writing</div>
+        <div class="menu-item" data-target="#heading-3">Hunting AI Tools</div>
+        <div class="menu-item" data-target="#section">XXX 占位</div>    
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const menuButton = document.querySelector('.menu-button');
+          const menu = document.querySelector('.menu');
+          const menuItems = document.querySelectorAll('.menu-item');
+        
+          menuButton.addEventListener('click', () => {
+            menu.classList.toggle('menu-open');
+          });
+        
+          document.addEventListener('click', function(event) {
+            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+              menu.classList.remove('menu-open');
+            }
+          });
+        
+          menu.addEventListener('click', function(event) {
+            event.stopPropagation();
+          });
+        
+          const adjustScrollPosition = (element) => {
+            const offsetTop = element.getBoundingClientRect().top + window.scrollY - 70; // Assuming a fixed header of 70px height
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth',
+            });
+          };
+        
+          menuItems.forEach(item => {
+            item.addEventListener('click', event => {
+              event.preventDefault();
+              const targetText = item.textContent.trim();
+              const headers = Array.from(document.querySelectorAll('.section .header'));
+        
+              const target = headers.find(header => {
+                // 获取标题文本，忽略子元素（如按钮）的内容
+                const headerText = header.childNodes[0].nodeValue.trim();
+                return headerText === targetText;
+              });
+        
+              if (target) {
+                adjustScrollPosition(target);
+              }
+        
+              menu.classList.remove('menu-open');
+            });
+          });
+        });
+    </script>
+        
 
     <footer>
         © Natalie
