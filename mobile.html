@@ -87,7 +87,7 @@
             color: rgb(0, 244, 0);
             background-color: rgb(3, 31, 2);
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 1.2em;
         }
 
         /* orange backgroud button */
@@ -103,6 +103,10 @@
             margin-bottom: -7px;
             cursor: pointer;
             border-radius: 5px;
+        }
+
+        button:hover {
+            color: rgb(0, 244, 0);
         }
 
         .float-right {
@@ -129,6 +133,7 @@
             cursor: pointer;
         }
 
+        /* floating back-to-top button */
         #back-to-top {
             position: fixed;
             right: 50%;
@@ -148,6 +153,10 @@
             border-radius: 5px;
             line-height: 28px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
+        }
+
+        #back-to-top:hover {
+             color: rgb(0, 244, 0);
         }
 
         /* floating meanu button */
@@ -172,6 +181,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
         }
 
+        .menu-button:hover {
+             color: rgb(0, 244, 0);
+        }
+        
         .menu {
             position: fixed;
             bottom: 0%;
@@ -391,6 +404,7 @@
             <li class="item"><a href="https://explorer.globe.engineer/">Globe Explorer</a></li>
             <li class="item"><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
             <li class="item"><a href="https://consillium.vercel.app/">Consillium<span style="font-size: 0.8em; font-style: italic;"> via vercel</span></a></li>
+            <li class="item"><a href="https://iask.ai/"> iAsk </a></li>
                       
             <hr size="1" style="margin-left: 0;">
 
@@ -425,7 +439,8 @@
             <li class="item"><a href="https://notebooklm.google/?location=us-only">Google NotebookLM<span style="font-size: 0.8em; font-style: italic;"> # US Only</span></a></li>
             <li class="item"><a href="https://typeset.io/">SciSpace</a></li>
             <li class="item"><a href="https://consensus.app/search/">Consensus</a></li>         
-            <li class="item"><a href="https://www.chatpdf.com/">ChatPDF</a></li>            
+            <li class="item"><a href="https://www.chatpdf.com/">ChatPDF</a></li>  
+            <li class="item"><a href="https://www.txyz.ai/?home">txyz</a></li>           
             <li class="item"><a href="https://yiyibooks.cn/">一译<span style="font-size: 0.8em; font-style: italic;"> # Translation</span></a></li>
             <p>&nbsp⁎ ChatGPT / GPTs: </p>
             <p> &nbsp <a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus"><span style="font-size: 0.7em;">&nbsp 🔗</span>Consensus</a>&nbsp<a href="https://chat.openai.com/g/g-NgAcklHd8-scispace"><span style="font-size: 0.7em;">&nbsp 🔗</span>SciSpace</a></p>
@@ -487,7 +502,7 @@
         </ul>
     </div>
 
-    <div id="back-to-top">Back to Top</div>
+<div id="back-to-top">Back to Top</div>
     <script>
       document.getElementById('back-to-top').addEventListener('click', function() {
         window.scrollTo(0, 0);
