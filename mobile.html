@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLMs</title>
     <link rel="icon" href="icon.ico">
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,12 +46,11 @@
             font-weight: 600;
             font-size: 1.2rem;
             margin-bottom: 0.5em;
-
         }
 
         p {
-            padding: 0em;
-            margin-top: 0.5em;
+            padding: 0.3em;
+            margin-top: 1em;
             margin-bottom: 0em;
             font-size: 1rem;
         }
@@ -95,12 +95,12 @@
             border: none;
             background-color: #ff6600;
             color: white;
-            font-size: 1rem;
+            font-size: 1.2rem;
             padding: 0px 0px;
             padding-left: 6px;
             padding-right: 6px;
-            margin-top: -7px;
-            margin-bottom: -7px;
+            margin-top: -10px;
+            margin-bottom: 5px;
             cursor: pointer;
             border-radius: 5px;
         }
@@ -121,7 +121,7 @@
         /* no backgroud color button */
         .button-simple {
             display: inline-block;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #ff6600;
             height: 28px;
@@ -147,95 +147,31 @@
             transform: scale(0.95);
         }
 
-        /* floating back-to-top button */
-        #back-to-top {
-            position: fixed;
-            right: 50%;
-            bottom: 20px;
-            transform: translate(50%, -50%);
-            z-index: 999;
-            width: 160px;
-            height: 30px;
-            padding: 0;
-            border: none;
-            background-color: #d8d6d5a3;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
+        .card {
+            margin: 12px;
+            padding: 12px;
+            border-radius: 8px;
             cursor: pointer;
-            border-radius: 5px;
-            line-height: 28px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
+            overflow: hidden;
+            transition: height 0.3s ease;
+            background-color: #001524;
         }
-
-        #back-to-top:hover {
-             color: rgb(0, 244, 0);
+        .card p {
+            margin: 0;
         }
-
-        /* floating meanu button */
-        .menu-button {
-            position: fixed;
-            right: 50%;
-            bottom: 60px;
-            transform: translate(50%, -50%);
-            z-index: 999;
-            width: 160px;
-            height: 30px;
-            padding: 0;
-            border: none;
-            background-color: #d8d6d5a3;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 5px;
-            line-height: 28px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.643);
+        .card .urls {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
         }
-
-        .menu-button:hover {
-             color: rgb(0, 244, 0);
+        .card.expanded {
+            height: auto;
         }
-        
-        .menu {
-            position: fixed;
-            bottom: 0%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 75%;
-            min-height: 100px; /* 设置最小高度以确保内容空间 */
-            background-color: #d8d6d5;
-            color: black; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-            border-radius: 10px; 
-            padding: 20px;
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
+        .card.expanded .urls {
+            height: auto;
         }
-
-        .menu-open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-
-            /* 菜单项样式 */
-        .menu-item {
-            padding: 5px;
-            border-bottom: 1px solid white;
-            cursor: pointer;
-        }
-
-            /* 菜单项选中样式 */
-        .menu-item:hover {
-            color: rgb(0, 244, 0);
-            background-color: rgb(3, 31, 2);
-            font-weight: 600;
-            font-size: 1.1em;
+        .item {
+            margin-bottom: 5px;
         }
 
         footer {
@@ -253,11 +189,8 @@
             mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
         }
 
-
     </style>
 </head>
-
-
 <body>
 
     <div style="text-align: right;">
@@ -266,11 +199,10 @@
         </span>
     </div>
 
-    <div class="section">
-        <h2 class="header">LLMs</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">LLMs</h2>
 
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://chat.openai.com/">ChatGPT<span style="font-size: 0.8em; font-style: italic;"> by OpenAI</span></a></li> 
             <li class="item"><a href="https://copilot.microsoft.com/">Microsoft Copilot</a></li>
@@ -280,11 +212,13 @@
             <li class="item"><a href="https://chat.mistral.ai/">Mistral</a></li>
             <li class="item"><a href="https://pi.ai/talk">Pi, personal AI</a></li>
             <li class="item"><a href="https://cohere.com/">Cohere</a></li>
+            <li class="item"><a href="https://chat.reka.ai/chat">Reka</a></li>   
         </ul>
     </div>
-    
-    <div class="section">
-        <h2 class="header">Search
+</div>
+
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Search
         <button class="float-right" onclick="openall1()">Open ALL</button>
         <script>
             function openall1() {
@@ -307,8 +241,7 @@
         </script>
         </h2>
 
-        <hr style=border-color:#ff6600>
-    
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
             <li class="item"><a href="https://poe.com/Web-Search">Poe / Web-Search</a></li>
@@ -323,12 +256,13 @@
 
             <br /> 
             
-            <a href="https://poe.com/Search_Planner" target="_blank" class="button-simple">Poe / Search Planner</a>
+            <a href="https://poe.com/Search_Planner" target="_blank" class="button-simple">Poe / Search Planner</a>   
         </ul>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="header">Search #大陆
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Search #大陆
         <button class="float-right" onclick="openall2()">Open ALL</button>
         <script>
             function openall2() {
@@ -344,22 +278,19 @@
         </script>
         </h2>
 
-        <hr style=border-color:#ff6600>
-                        
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
             <li class="item"><a href="https://so.360.com/">360 AI 搜索</a></li>
-            <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
-            </ul>
+            <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>   
+        </ul>
     </div>
+</div>
 
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Playground / API</h2>
 
-
-    <div class="section">
-        <h2 class="header">Playground / API</h2>
-
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://chat.lmsys.org/">Chatbot Arena<span style="font-size: 0.8em; font-style: italic;"> by UC Berkeley</span></a></li>
             <li class="item"><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
@@ -382,17 +313,16 @@
 
             <hr size="1" style="margin-left: 0;">
             
-            <li class="item"><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face</span></a></li>  
+            <li class="item"><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face</span></a></li>    
         </ul>
     </div>
-    
-    <div class="section">
-        <h2 class="header">Multiple LLMs</h2>
+</div>
 
-        <hr style=border-color:#ff6600>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Multiple LLMs</h2>
 
+    <div class="urls">
         <ul>
-
             <li class="item"><a href="https://poe.com/">Poe<span style="font-size: 0.8em; font-style: italic;"> by Quora</span></a></li>
             <li class="item"><a href="https://huggingface.co/chat/">HuggingChat<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face # open-source only</span></a></li>
             <li class="item"><a href="https://groq.com/">Groq<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
@@ -404,16 +334,15 @@
             <li class="item"><a href="https://yichat.ai/">YiCHAT<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
             <li class="item"><a href="https://www.mixturegpt.com/">MixtureGPT<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>     
             <li class="item"><a href="https://web.chatboxai.app/">ChatBox<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
-            <li class="item"><a href="https://www.chatbotui.com/">Chatbot UI<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
+            <li class="item"><a href="https://www.chatbotui.com/">Chatbot UI<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>   
         </ul>
     </div>
-    
+</div>
 
-    <div class="section">
-        <h2 class="header">WIKI & FinTech</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">WIKI & FinTech</h2>
 
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://explorer.globe.engineer/">Globe Explorer</a></li>
             <li class="item"><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
@@ -424,31 +353,33 @@
 
             <li class="item"><a href="https://www.beebee.ai/">BeeBee</a></li>
             <li class="item"><a href="https://reportify.cc/">Reportify</a></li>
-            <li class="item"><a href="https://www.secinsights.ai/">SEC Insights</a></li> 
+            <li class="item"><a href="https://www.secinsights.ai/">SEC Insights</a></li>    
         </ul>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="header">Summarizing YouTube</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Summarizing YouTube</h2>
 
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://summarize.ing/en">Summarize.ing<span style="font-size: 0.8em; font-style: italic;"> # 20/day</span></a></li>
             <li class="item"><a href="https://www.summarize.tech/">Summarize.tech<span style="font-size: 0.8em; font-style: italic;"> # daily limits</span></a>
             <li class="item"><a href="https://tammy.ai/">tammy<span style="font-size: 0.8em; font-style: italic;"> # 5/day</span></a>
-            <li class="item"><a href="https://transcriptal.com/">Transcriptal<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
+            <li class="item"><a href="https://transcriptal.com/">Transcriptal<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>   
         </ul>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="header">Reading Academic Papers</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Reading Academic Papers</h2>
 
-        <hr style=border-color:#ff6600>
 
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Academic Paper Sum. for Learners</a></li>
             <li class="item"><a href="https://chat.openai.com/g/g-2snGs5H6C-academic-paper-summary-by-chapter"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Academic Paper Sum. by Chapter</a></li>
+            <li class="item"><a href="https://chat.openai.com/g/g-NjfOntUt3-understanding-papers"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Understanding Papers</a></li>
             <li class="item"><a href="https://chat.openai.com/g/g-ujcnMvq3H"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Sum. Content （中文PPT形式）</a></li>  
             <li class="item"><a href="https://notebooklm.google/?location=us-only">Google NotebookLM<span style="font-size: 0.8em; font-style: italic;"> # US Only</span></a></li>
             <li class="item"><a href="https://typeset.io/">SciSpace</a></li>
@@ -458,15 +389,15 @@
             <li class="item"><a href="https://yiyibooks.cn/">一译<span style="font-size: 0.8em; font-style: italic;"> # Translation</span></a></li>
             <p>&nbsp⁎ <img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / GPTs: </p>
             <p> &nbsp <a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus"><span style="font-size: 0.7em;">&nbsp 🔗</span>Consensus</a>&nbsp<a href="https://chat.openai.com/g/g-NgAcklHd8-scispace"><span style="font-size: 0.7em;">&nbsp 🔗</span>SciSpace</a></p>
-            <p> &nbsp <a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai"><span style="font-size: 0.7em;">&nbsp 🔗</span>ScholarAI</a>&nbsp<a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant"><span style="font-size: 0.7em;">&nbsp 🔗</span>AskYourPDF Research Asst.</a></p>
+            <p> &nbsp <a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai"><span style="font-size: 0.7em;">&nbsp 🔗</span>ScholarAI</a>&nbsp<a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant"><span style="font-size: 0.7em;">&nbsp 🔗</span>AskYourPDF Research Asst.</a></p>   
         </ul>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="header">Writing & Coding</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Writing & Coding</h2>
 
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://app.wordtune.com/"> Wordtune <span style="font-size: 0.8em; font-style: italic;"> by AI21 Labs</span></a></li>
             <li class="item"><a href="https://robbiefrontend.z22.web.core.windows.net/">Robbie Email Writer</a></li>
@@ -480,16 +411,15 @@
             <li class="item"><a href="https://v0.dev/"> v0 <span style="font-size: 0.8em; font-style: italic;"> # by Vercel</span></a></li>
             <li class="item"><a href="https://www.blackbox.ai/">Blackbox</a></li>
             <li class="item"><a href="https://jit.codes/">Jit Codes</a></li>
-            <li class="item"><a href="https://www.phorm.ai/">Phorm</a></li>
+            <li class="item"><a href="https://www.phorm.ai/">Phorm</a></li>   
         </ul>
     </div>
+</div>
 
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Hunting AI Tools</h2>
 
-    <div class="section">
-        <h2 class="header">Hunting AI Tools</h2>
-
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://www.producthunt.com/">Product Hunt</a></li>
             <li class="item"><a href="https://www.futurepedia.io/">Futurepedia</a></li>
@@ -500,116 +430,54 @@
             <hr size="1" style="margin-left: 0;">
      
             <li class="item"><a href="https://alternativeto.net/">AlternativeTo<span style="font-size: 0.8em; font-style: italic;"> # find alternatives</span></a></li>
-            <li class="item"><a href="https://www.similarsites.com/">SimilarSites<span style="font-size: 0.8em; font-style: italic;"> # find alternatives</span></a></li>
+            <li class="item"><a href="https://www.similarsites.com/">SimilarSites<span style="font-size: 0.8em; font-style: italic;"> # find alternatives</span></a></li>   
         </ul>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="header">Cloud Console</h2>
+<div class="card" onclick="expandCard(this)">
+    <h2 class="header">Cloud Console</h2>
 
-        <hr style=border-color:#ff6600>
-
+    <div class="urls">
         <ul>
             <li class="item"><a href="https://portal.azure.com/#home">Azure<span style="font-size: 0.8em; font-style: italic;"> # by Micorosft</span></a></li>
             <li class="item"><a href="https://console.cloud.google.com/vertex-ai?hl=en&project=turing-poet-416719">Vertex<span style="font-size: 0.8em; font-style: italic;"> # by Google</span></a>
-            <li class="item"><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span style="font-size: 0.8em; font-style: italic;"> # by Amazon</span></a>
+            <li class="item"><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span style="font-size: 0.8em; font-style: italic;"> # by Amazon</span></a>   
         </ul>
     </div>
+</div>
 
-<div id="back-to-top">Back to Top</div>
-    <script>
-      document.getElementById('back-to-top').addEventListener('click', function() {
-        window.scrollTo(0, 0);
-      });
-    </script>
-
-
-
-<div class="menu-button">Menu</div>
-
-    <div class="menu">
-        <div class="menu-item" data-target="#heading-1">LLMs</div>
-        <div class="menu-item" data-target="#heading-2">Search</div>
-        <div class="menu-item" data-target="#heading-3">Search #大陆</div>
-        <div class="menu-item" data-target="#heading-1">Playground / API</div>
-        <div class="menu-item" data-target="#heading-2">Multiple LLMs</div>
-        <div class="menu-item" data-target="#heading-3">WIKI & FinTech</div>
-        <div class="menu-item" data-target="#heading-3">Summarizing YouTube</div>    
-        <div class="menu-item" data-target="#heading-3">Reading Academic Papers</div>
-        <div class="menu-item" data-target="#heading-3">Writing & Coding</div>
-        <div class="menu-item" data-target="#heading-3">Hunting AI Tools</div>
-        <div class="menu-item" data-target="#heading-3">Cloud Console</div>    
-    </div>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const menuButton = document.querySelector('.menu-button');
-          const menu = document.querySelector('.menu');
-          const menuItems = document.querySelectorAll('.menu-item');
-        
-          menuButton.addEventListener('click', () => {
-            menu.classList.toggle('menu-open');
-          });
-        
-          document.addEventListener('click', function(event) {
-            if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
-              menu.classList.remove('menu-open');
+<script>
+    function expandCard(card) {
+        var cards = document.getElementsByClassName('card');
+        for (var i = 0; i < cards.length; i++) {
+            if (cards[i] !== card) {
+                cards[i].classList.remove('expanded');
             }
-          });
-        
-          menu.addEventListener('click', function(event) {
-            event.stopPropagation();
-          });
-        
-          const adjustScrollPosition = (element) => {
-            const offsetTop = element.getBoundingClientRect().top + window.scrollY - 70; // Assuming a fixed header of 70px height
-            window.scrollTo({
-              top: offsetTop,
-              behavior: 'smooth',
-            });
-          };
-        
-          menuItems.forEach(item => {
-            item.addEventListener('click', event => {
-              event.preventDefault();
-              const targetText = item.textContent.trim();
-              const headers = Array.from(document.querySelectorAll('.section .header'));
-        
-              const target = headers.find(header => {
-                // 获取标题文本，忽略子元素（如按钮）的内容
-                const headerText = header.childNodes[0].nodeValue.trim();
-                return headerText === targetText;
-              });
-        
-              if (target) {
-                adjustScrollPosition(target);
-              }
-        
-              menu.classList.remove('menu-open');
-            });
-          });
-        });
-    </script>
-        
-    <br>
-
-    <p style="animation: blink 1.5s infinite; text-align: center; color: rgb(0, 170, 255); font-size: 1.1rem"> © Natalie </p>
-
-        <style>
-        @keyframes blink {
-            0% { color: rgb(0, 153, 255); }
-            25% { color: rgb(208, 0, 255); }
-            50% { color: yellow; }
-            75% { color: rgb(255, 136, 0); }
-            100% { color: rgb(4, 200, 4); }
         }
-        </style>
-    
-    
-    <div id="footer">
-        <img src="image.jpg" alt="Image">
-    </div>
+        card.classList.toggle('expanded');
+        window.scrollTo(0, card.offsetTop - 100); // scroll to the top of the card
+    }
+</script>
 
+<br>
+
+<p style="animation: blink 1.5s infinite; text-align: center; color: rgb(0, 170, 255); font-size: 1.1rem"> © Natalie </p>
+
+    <style>
+    @keyframes blink {
+        0% { color: rgb(0, 153, 255); }
+        25% { color: rgb(208, 0, 255); }
+        50% { color: yellow; }
+        75% { color: rgb(255, 136, 0); }
+        100% { color: rgb(4, 200, 4); }
+    }
+    </style>
+
+
+<div id="footer">
+    <img src="image.jpg" alt="Image">
+</div>
 
 </body>
 </html>
