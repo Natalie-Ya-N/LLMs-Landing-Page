@@ -11,7 +11,7 @@
         body {
             font-family: Arial, sans-serif;
             margin-top: 0px;
-            margin-bottom: 50px;
+            margin-bottom: 0px;
             padding: 0;
             background: #1b2736;
             color: #ffffff;
@@ -90,6 +90,22 @@
             background-color: rgb(3, 31, 2);
         }
 
+        .section {
+            flex: 2;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 0px;
+            background-color: #0015246d;
+            border-radius: 15px;
+            min-height: 200px; /* 设置最小高度，保持横排区块高度一致，数值需根据实际情况调整 */
+            padding: 15px; /* 可选：增加内边距，让内容与边框有一定距离 */
+            box-sizing: border-box; /* 可选：防止 padding 撑大 section 的实际实际高度 */
+            border: 2px solid transparent; /* 预先设置透明边框 */
+        }
+        .section:hover {
+            border: 2px solid #ff660071;
+        }
+        
         /* orange backgroud button */
         button {
             border: none;
@@ -124,7 +140,8 @@
             font-size: 0.9rem;
             color: #ff6600;
             font-weight: 600;
-            margin-top: 3%;
+            margin-top: 1%;
+            margin-bottom: 1%;
             padding-left: 10px;
             padding-right: 10px;
             padding-top: 3.5px;
@@ -195,11 +212,11 @@
 
 
 <body>
-    <div style="background-color: #ff6600; color:rgb(3, 31, 2); text-align: center; padding: 20px 0; width: 100%;">
+    <div style="background-color: #ff6600; color:#1b2736; text-align: center; padding: 20px 0; width: 100%;">
         <h1 style="margin: 0; font-size: 1.5rem;">AI Directory</h1>
     </div>
 
-    <div style="text-align: right; margin-top: 0px; margin-bottom: 10px;">
+    <div style="text-align: right; margin-top: 10px; margin-bottom: 10px;">
         <span style="margin-right: 30px;">
             <a href="mobile.html" target="_self"  class="button-simple">Mobile View</a>
         </span>
