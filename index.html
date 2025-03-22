@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLMs</title>
     <link rel="icon" href="icon.ico">
+    <base target="_blank" rel="noopener noreferrer"> 
     
     <style>
         body {
@@ -140,6 +141,18 @@
             transform: scale(0.95);
         }
 
+        .section {
+            flex: 2;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 0px;
+            background-color: #0015246d; 
+            border-radius: 15px;
+            min-height: 200px; /* 设置最小高度，保持横排区块高度一致，数值需根据实际情况调整 */
+            padding: 15px; /* 可选：增加内边距，让内容与边框有一定距离 */
+            box-sizing: border-box; /* 可选：防止 padding 撑大 section 的实际高度 */
+        }
+
         #back-to-top {
             position: fixed;
             right: 50%;
@@ -183,10 +196,14 @@
 
 
 <body>
+    <div style="background-color: #ff6600; color:rgb(3, 31, 2); text-align: center; padding: 20px 0; width: 100%;">
+        <h1 style="margin: 0; font-size: 1.5rem;">AI Directory</h1>
+    </div>
 
-    <div style="text-align: right;">
+    <div style="text-align: right; margin-top: 0px; margin-bottom: 10px;">
         <span style="margin-right: 30px;">
             <a href="javascript:void(0);" onclick="window.location.href='mobile.html';" class="button-simple">Mobile View</a>
+            
         </span>
     </div>
 
@@ -219,10 +236,10 @@
             <ul>
                 <li class="item"><a href="https://chat.deepseek.com/">deepseek<span style="font-size: 0.8em; font-style: italic;"></span></a></li>
                 <li class="item"><a href="https://tongyi.aliyun.com/">通义千问 <span style="font-size: 0.8em; font-style: italic;">by 阿里</span></a></li>   
+                <li class="item"><a href="https://tingwu.aliyun.com/home">... 通意听悟</a></li>         
                 <li class="item"><a href="https://www.doubao.com/chat/">豆包 <span style="font-size: 0.8em; font-style: italic;"> by 字节</span></a></li>
                 <li class="item"><a href="https://yiyan.baidu.com/">文心一言 <span style="font-size: 0.8em; font-style: italic;"> by 百度</span></a></li>     
-                <hr size="1" style="width: 50%; margin-left: 0;">
-                <li class="item"><a href="https://tingwu.aliyun.com/home">通意听悟<span style="font-size: 0.8em; font-style: italic;"> by 阿里</span></a></li>         
+
             </ul>
         </div>
 
