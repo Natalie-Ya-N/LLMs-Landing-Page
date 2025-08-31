@@ -166,7 +166,11 @@
         .card.expanded {
             height: auto;
             background-color: #001524;
-            border: 1px solid #ff660071;
+            border: 1px solid #ff6600;
+            box-shadow: 
+                3px 3px 5px #ff6600, /* 外阴影，橙色调 */
+                -2px -2px 3px rgba(255, 153, 51, 0.5), /* 外高光，浅橙色 */
+                inset -2px -2px 3px rgba(255, 153, 51, 0.3); /* 内高光，浅橙色 */
         }
         .card.expanded .urls {
             height: auto;
@@ -268,6 +272,7 @@
         <hr style=border-color:#ff6600>
         <ul>
             <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
+            <li class="item"><a href="https://www.perplexity.ai/finance">... Perplexity Finance</a></li>             
             <li class="item"><a href="https://oo.ai//">oo.ai</a></li>
             <li class="item"><a href="https://www.phind.com/search?home=true">Phind</a></li>
             <li class="item"><a href="https://websets.exa.ai/">Exa Websets</a></li>
