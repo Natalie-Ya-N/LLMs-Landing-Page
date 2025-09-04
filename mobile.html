@@ -89,35 +89,8 @@
             font-size: 1.2em;
         }
 
-        /* orange backgroud button */
-        button {
-            border: none;
-            background-color: #ff6600;
-            color: white;
-            font-size: 1.2rem;
-            padding: 0px 0px;
-            padding-left: 6px;
-            padding-right: 6px;
-            margin-top: -10px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        button:active {
-            transform: scale(0.95);
-        }
-
-        button:hover {
-            color: rgb(0, 244, 0);
-        }
-
-        .float-right {
-            float: right;
-            margin-right: 1.5%;
-        }
-
-        /* no backgroud color button */
+       
+        /* button */
         .button-simple {
             display: inline-block;
             font-size: 0.9rem;
@@ -229,7 +202,7 @@
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">LLMs  #大陆</h2>
+    <h2 class="header">LLMs  <span style="font-size: 0.8em; font-style: italic;">#大陆 </span> </h2>
 
     <div class="urls">
         <hr style=border-color:#ff6600>
@@ -244,36 +217,13 @@
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">Search
-        <button class="float-right" onclick="openall1()">Open ALL</button>
-        <script>
-            function openall1() {
-            var links = [
-                    "https://www.perplexity.ai/",
-                    "https://oo.ai/",
-                    "https://www.phind.com/search?Home=true",
-                    "https://websets.exa.ai/",
-                    "https://exa.ai/search?c=all",
-                    "https://kagi.com/",
-                    "https://you.com/",
-                    "https://iask.ai/",
-                    "https://komo.ai/",
-                    "https://scira.ai/",            
-                    "https://beago.ai/", 
-            ];
-            for (var i = 0; i < links.length; i++) {
-                window.open(links[i], "_blank");
-            }
-            }
-        </script>
-        </h2>
+    <h2 class="header">Search </h2>
 
     <div class="urls">
         <hr style=border-color:#ff6600>
         <ul>
             <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
             <li class="item"><a href="https://www.perplexity.ai/finance">... Perplexity Finance</a></li>             
-            <li class="item"><a href="https://oo.ai//">oo.ai</a></li>
             <li class="item"><a href="https://www.phind.com/search?home=true">Phind</a></li>
             <li class="item"><a href="https://websets.exa.ai/">Exa Websets</a></li>
             <li class="item"><a href="https://exa.ai/search?c=all">Exa Search</a></li>
@@ -282,7 +232,6 @@
             <li class="item"><a href="https://iask.ai/">iAsk<br/></a></li>
             <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
             <li class="item"><a href="https://scira.ai/">Scira</a></li>
-            <li class="item"><a href="https://beago.ai/">BeaGo</a></li>
 
             <br /> 
             <a href="https://demo.exa.ai/hallucination-detector" target="_blank" class="button-simple">Exa Hallucination-detector</a>
@@ -293,25 +242,7 @@
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">Search #大陆
-        <button class="float-right" onclick="openall2()">Open ALL</button>
-        <script>
-            function openall2() {
-            var links = [
-                "https://felo.ai/search",      
-                "https://metaso.cn/",
-                "https://n.cn/",
-                "https://search.tiangong.cn/",
-                "https://bochaai.com/",
-                "https://bilin.ai/",
-                "https://floatsearch.ai/",
-            ];
-            for (var i = 0; i < links.length; i++) {
-                window.open(links[i], "_blank");
-            }
-            }
-        </script>
-        </h2>
+    <h2 class="header">Search <span style="font-size: 0.8em; font-style: italic;">#大陆 </span> </h2>
 
     <div class="urls">
         <hr style=border-color:#ff6600>
@@ -328,7 +259,7 @@
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">Playground / API</h2>
+    <h2 class="header">Playground / Arena</h2>
 
     <div class="urls">
         <hr style=border-color:#ff6600>
@@ -336,29 +267,19 @@
             <li class="item"><a href="https://chat.lmsys.org/">LMArena<span style="font-size: 0.8em; font-style: italic;"> by UC Berkeley</span></a></li>
             <li class="item"><a href="https://beta.lmarena.ai/">... LMArena Beta</a></li>
             <li class="item"><a href="https://huggingface.co/spaces">Hugging Face Spaces</a></li>
-            <li class="item"><a href="https://openrouter.ai/">OpenRouter</a></li>      
             <li class="item"><a href="https://build.nvidia.com/explore/discover">Nvidia Build<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
             <li class="item"><a href="https://ai.azure.com/"> Azure AI Studio </a></li>
-            <li class="item"><a href="https://playground.ai.cloudflare.com/"> Cloudflare <span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
             
             <hr size="1" style="margin-left: 0;">
 
             <li class="item"><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
             <li class="item"><a href="https://labs.google/">Google Labs</a></li>      
+            <li class="item"><a href="https://copilot.microsoft.com/labs//">Copilot Labs <span style="font-size: 0.8em; font-style: italic;">by Microsoft</span> </a></li>        
             <li class="item"><a href="https://platform.openai.com/">OpenAI Playground</a></li>
             <li class="item"><a href="https://console.groq.com/playground">Groq Playground</a></li>
             <li class="item"><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
             <li class="item"><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
             <li class="item"><a href="https://dashboard.cohere.com/playground/chat">Cohere Playground</a></li>
-
-
-            <hr size="1" style="margin-left: 0;">
-
-            <li class="item"><a href="https://www.ragarena.com/">RAG Arena</a></li>
-
-            <hr size="1" style="margin-left: 0;">
-
-            <li class="item"><a href="https://huggingface.co/spaces/WildVision/vision-arena">Vision Arena<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face</span></a></li>
 
             <hr size="1" style="margin-left: 0;">
             
@@ -368,7 +289,7 @@
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">LLM Wrapper</h2>
+    <h2 class="header">LLM Wrapper / Agent </h2>
 
     <div class="urls">
         <hr style=border-color:#ff6600>
@@ -376,31 +297,27 @@
             
             <li class="item"><a href="https://poe.com/">Poe<span style="font-size: 0.8em; font-style: italic;"> by Quora</span></a></li>
             <li class="item"><a href="https://duckduckgo.com/?q=DuckDuckGo&ia=chat">DuckDuckGo Chat</a></li>
-            <li class="item"><a href="https://huggingface.co/chat/">HuggingChat<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face # open-source only</span></a></li>
 
-            <hr size="1" style="margin-left: 0;">
-
-            <li class="item"><a href="https://groq.com/">Groq<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-            <li class="item"><a href="https://inference.cerebras.ai/">Cerebras<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-            <li class="item"><a href="https://cloud.sambanova.ai/">SambaNova<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-                            
             <hr size="1" style="margin-left: 0;">
             
-            <li class="item"><a href="https://msty.studio/welcome/">Msty Studio<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
-            <li class="item"><a href="https://msty.studio/data/">... Msty Studio - Data Mgmt.</a></li>
-            <li class="item"><a href="https://web.chatboxai.app/">ChatBox<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
+            <li class="item"><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li> 
+            <li class="item"><a href="https://www.genspark.ai/">Genspark</a></li>
+            <li class="item"><a href="https://mulerun.com/">MuleRun</a></li>
 
         </ul>
     </div>
 </div>
 
 <div class="card" onclick="expandCard(this)">
-    <h2 class="header">AI Agent & APP</h2>
+    <h2 class="header">API & APP </h2>
 
     <div class="urls">
         <ul>
-            <li class="item"><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li> 
-            <li class="item"><a href="https://www.genspark.ai/">Genspark</a></li> 
+
+            <li class="item"><a href="https://openrouter.ai/">OpenRouter</a></li>
+            <li class="item"><a href="https://groq.com/">Groq<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
+            <li class="item"><a href="https://inference.cerebras.ai/">Cerebras<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
+            <li class="item"><a href="https://cloud.sambanova.ai/">SambaNova<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
                             
             <hr size="1" style="margin-left: 0;">
             
@@ -446,7 +363,7 @@
                 <li class="item"><a href="https://www.youtube-transcript.io/">YouTube Ttranscript<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
                 <li class="item"><a href="https://notegpt.io/youtube-transcript-downloader">NoteGPT<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
                 <li class="item"><a href="https://youtubetotranscript.com/">Youtube to Transcript<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
-                <li class="item"><a href="https://scribetube.com/">ScribeTube<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
+
         </ul>
     </div>
 </div>
@@ -498,7 +415,6 @@
             <li class="item"><a href="https://v0.dev/"> v0 <span style="font-size: 0.8em; font-style: italic;"> # by Vercel</span></a></li>
             <li class="item"><a href="https://www.blackbox.ai/">Blackbox</a></li>
             <li class="item"><a href="https://jit.codes/">Jit Codes</a></li>
-            <li class="item"><a href="https://www.phorm.ai/">Phorm</a></li>   
         </ul>
     </div>
 </div>
