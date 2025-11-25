@@ -7,11 +7,10 @@
     <style>
         :root {
             --bg-color: #020205;
-            --card-bg: rgba(10, 15, 30, 0.85);
-            --primary-cyan: #00f3ff;
+            --card-bg: rgba(10, 15, 30, 0.929);
+            --primary-cyan: #3AA99F;
             --text-white: #ffffff;
-            --text-dim: #8a9bb0;
-            --grid-line: rgba(0, 243, 255, 0.05);
+            --text-dim: #B7B5AC;
         }
 
         * {
@@ -22,10 +21,6 @@
 
         body {
             background-color: var(--bg-color);
-            background-image: 
-                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
             color: var(--text-white);
             display: flex;
@@ -48,7 +43,6 @@
             font-weight: 700;
             text-transform: uppercase;
             color: var(--primary-cyan); 
-            text-shadow: 0 0 30px rgba(0, 243, 255, 0.4);
             letter-spacing: 4px;
             margin-bottom: 5px;
         }
@@ -76,7 +70,6 @@
         }
 
         .tech-box h3 {
-            color: var(--primary-cyan);
             margin-bottom: 5px;
             font-size: 1rem;
             text-transform: uppercase;
@@ -103,7 +96,7 @@
         /* Card Design */
         .card {
             background-color: var(--card-bg);
-            background-image: radial-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(0, 242, 255, 0.072) 1px, transparent 1px);
             background-size: 20px 20px;
             padding: 25px 20px;
             position: relative;
@@ -167,8 +160,6 @@
             width: 4px;
             height: 4px;
             background-color: var(--primary-cyan);
-            box-shadow: 0 0 6px var(--primary-cyan);
-            opacity: 0.6;
             animation: signal-blink 1s infinite;
         }
 
@@ -197,13 +188,17 @@
             width: 20px; height: 20px;
             border-bottom: 4px solid var(--primary-cyan);
             border-left: 4px solid var(--primary-cyan);
+            opacity: 0.6;
         }
+
         .deco-br {
             bottom: -1px; right: -1px;
             width: 40px; height: 40px;
             border-bottom: 2px solid var(--primary-cyan);
             border-right: 2px solid var(--primary-cyan);
+            opacity: 0.6;
         }
+        
         .deco-br::after {
             position: absolute;
             bottom: 5px; right: 5px;
@@ -249,7 +244,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
+            color: var(--text-white);
             font-size: 0.95rem;
             font-weight: bold;
             position: relative;
@@ -260,7 +255,7 @@
 
         .action-item:hover {
             background: rgba(0, 243, 255, 0.15);
-            color: #ffffff;
+            color: var(--text-white);
             border-color: var(--primary-cyan);
         }
 
@@ -315,7 +310,7 @@
         .output-icon svg {
             width: 36px; height: 36px;
             fill: var(--primary-cyan);
-            filter: drop-shadow(0 0 5px var(--primary-cyan));
+
         }
 
         .output-icon span {
@@ -393,7 +388,7 @@
             </div>
             <a href="https://www.perplexity.ai/spaces/event-overview-shi-jian-gai-sh-SiZpS5SzQxGakWrIBpBkYQ#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">事件概述</a>
             <a href="https://www.perplexity.ai/spaces/event-search-with-focus-ApEhUwwMT_C.W0orCXgkqQ" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
-                <div style="color:#fff; ">搜索事件的某个指定重点</div>
+                <div>搜索事件的某个指定重点</div>
                 <div class="subtext">
                     • 支持/反对/利益相关方的观点<br>
                     • 专家意见 / 媒体观点<br>
@@ -418,7 +413,7 @@
                 <div class="card-title">预测推演</div>
             </div>
             <a href="https://www.perplexity.ai/spaces/strategic-foresight-yu-ce-tui-U0q7fodtQHeBmtKKymQ1HA#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
-                <div style="color:#fff; ">预测推演</div>
+                <div>预测推演</div>
                 <div class="subtext">
                     • 核心假设 / 驱动因素<br>
                     • 趋势分析 / 宏观环境<br>
@@ -429,6 +424,7 @@
             </a>
             <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">事件结果的概率预测</a>
             <div class="action-item">探索进一步探讨的问题</div>
+            <div class="action-item">模拟正反方辩论</div>
         </div>
 
         <!-- Card 5 -->
@@ -442,7 +438,7 @@
                 <div class="card-title">行业新闻</div>
             </div>
             <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
-                <div style="color:#fff; ">行业新闻战略预警速报</div>
+                <div>行业新闻战略预警速报</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 电信从业者视角 ]</div>
                 <div class="subtext">
                     • 核心信号与预警评级<br>
@@ -452,7 +448,7 @@
                 </div>
             </a>
             <a href="https://poe.com/Analyst-Probe" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
-                <div style="color:#fff; ">投资分析师提出犀利质询</div>
+                <div>投资分析师提出犀利质询</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 对抗性分析 ]</div>
                 <div class="subtext">
                     • 情景设定与叙事解构<br>
@@ -462,7 +458,7 @@
                 </div>
             </a>
             <a href="https://poe.com/Strategist-Probe" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
-                <div style="color:#fff; ">战略分析师提出质询</div>
+                <div>战略分析师提出质询</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 对抗性分析 ]</div>
             </a>
         </div>
