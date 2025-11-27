@@ -116,6 +116,25 @@
             transform: translateY(-10px);
         }
 
+        /* Card Header */
+        .card-header {
+            text-align: center;
+            background-color: rgb(from var(--primary-cyan) r g b / 20%);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border: 1px solid rgb(from var(--text-dim) r g b / 15%);
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-white);
+            letter-spacing: 2px;
+            display: inline-block;
+            padding: 5px 25px;
+        }
         /* 顶部挂载条 (全青色) */
         .card::before {
             content: '';
@@ -214,24 +233,7 @@
             width: 100%; height: 100%; opacity: 0.1;
         }
 
-        /* Card Header */
-        .card-header {
-            text-align: center;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            border: 1px solid rgb(from var(--text-dim) r g b / 20%);
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary-cyan);
-            letter-spacing: 2px;
-            display: inline-block;
-            padding: 5px 25px;
-        }
+
 
         /* Action Items */
         .action-item {
@@ -326,7 +328,7 @@
     <div class="top-node">
         <div class="tech-box">
             <h3>剪藏至 Obsidian</h3>
-            <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent); width: 80%; margin: 5px auto; opacity: 0.8;"></div>
+            <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent); width: 80%; margin: 5px auto; opacity: 0.6;"></div>
             <p style="font-size: 0.85rem; letter-spacing: 1px;">[ 完善: 标签 / 链接 ]</p>
         </div>
         <div style="position: absolute; left: 50%; bottom: -50px; width: 0.7px; height: 50px; background: linear-gradient(to bottom, var(--primary-cyan), transparent);"></div>
@@ -436,7 +438,7 @@
             <div class="card-header">
                 <div class="card-title">行业新闻</div>
             </div>
-            <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
+            <a href="https://poe.com/Strategic-Warning" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
                 <div>行业新闻战略预警速报</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 电信从业者视角 ]</div>
                 <div class="subtext">
