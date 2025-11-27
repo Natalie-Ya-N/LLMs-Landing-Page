@@ -9,7 +9,7 @@
             --bg-color: #020205;
             --card-bg: rgba(10, 15, 30, 0.929);
             --primary-cyan: #3AA99F;
-            --text-white: #ffffff;
+            --text-white: #fafaff;;
             --text-dim: #B7B5AC;
         }
 
@@ -28,6 +28,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
+            zoom: 0.90;  
         }
 
         /* Title Section */
@@ -47,6 +48,8 @@
             margin-bottom: 5px;
         }
 
+        
+
         /* Top Node */
         .top-node {
             width: 100%;
@@ -56,17 +59,17 @@
         }
 
         .tech-box {
-            background: rgba(6, 12, 25, 0.9);
-            border: 1px solid var(--primary-cyan);
+            background-color: var(--card-bg);
+            border: 1px solid rgb(from var(--text-dim) r g b / 20%);
             padding: 10px;
             text-align: center;
             clip-path: polygon(
-                20px 0, 100% 0, 
-                100% calc(100% - 20px), calc(100% - 20px) 100%, 
-                0 100%, 0 20px
+                30px 0, 100% 0, 
+                100% calc(100% - 30px), calc(100% - 30px) 100%, 
+                0 100%, 0 30px
             );
             position: relative;
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.15);
+
         }
 
         .tech-box h3 {
@@ -96,7 +99,7 @@
         /* Card Design */
         .card {
             background-color: var(--card-bg);
-            background-image: radial-gradient(rgba(0, 242, 255, 0.072) 1px, transparent 1px);
+            background-image: radial-gradient(rgb(from var(--primary-cyan) r g b / 10%) 1px, transparent 1px);
             background-size: 20px 20px;
             padding: 25px 20px;
             position: relative;
@@ -105,13 +108,12 @@
             gap: 15px;
             transition: transform 0.3s;
             margin-bottom: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            border: 1px solid rgb(from var(--text-dim) r g b / 15%);
             height: 100%;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
 
         /* 顶部挂载条 (全青色) */
@@ -123,7 +125,7 @@
             width: 50%;
             height: 4px;
             background: var(--primary-cyan);
-            box-shadow: 0 0 10px var(--primary-cyan);
+            box-shadow: 0 0 15px var(--primary-cyan);
             transition: 0.3s;
         }
 
@@ -143,13 +145,13 @@
             box-shadow: none;
             opacity: 0.6;
             
-            /* 利用背景渐变绘制：一条横线、一条竖线、一条斜线 */
-            background: 
-                linear-gradient(90deg, var(--primary-cyan), var(--primary-cyan)) 15px 0 / 100% 2px no-repeat,
-                linear-gradient(180deg, var(--primary-cyan), var(--primary-cyan)) 0 15px / 2px 100% no-repeat,
-                linear-gradient(135deg, transparent 42%, var(--primary-cyan) 42%, var(--primary-cyan) 45%, transparent 45%) 0 0 / 22px 22px no-repeat;
-                z-index: 5;
-            }
+        /* 利用背景渐变绘制：一条横线、一条竖线、一条斜线 */
+        background: 
+            linear-gradient(90deg, var(--primary-cyan), var(--primary-cyan)) 15px 0 / 100% 2px no-repeat,
+            linear-gradient(180deg, var(--primary-cyan), var(--primary-cyan)) 0 15px / 2px 100% no-repeat,
+            linear-gradient(135deg, transparent 42%, var(--primary-cyan) 42%, var(--primary-cyan) 45%, transparent 45%) 0 0 / 22px 22px no-repeat;
+            z-index: 5;
+        }
 
         /* 呼吸灯小点 */
         .deco-tl::after {
@@ -160,13 +162,13 @@
             width: 4px;
             height: 4px;
             background-color: var(--primary-cyan);
-            animation: signal-blink 1s infinite;
+            animation: signal-blink 0.8s infinite;
         }
 
         /* 定义闪烁动画  */
         @keyframes signal-blink {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px var(--primary-cyan); }
+            0%, 100% { opacity: 0.5; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px var(--primary-cyan); }
         }
 
        
@@ -176,7 +178,7 @@
             display: flex;
             justify-content: flex-end;
             align-items: flex-start;
-            gap: 3px;
+            gap: 5px;
         }
         .deco-tr span {
             width: 6px; height: 6px;
@@ -216,8 +218,8 @@
         .card-header {
             text-align: center;
             margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+            padding-bottom: 5px;
+            border: 1px solid rgb(from var(--text-dim) r g b / 20%);
             position: relative;
             flex-shrink: 0;
         }
@@ -225,19 +227,15 @@
         .card-title {
             font-size: 1.4rem;
             font-weight: bold;
-            color: var(--text-white);
+            color: var(--primary-cyan);
             letter-spacing: 2px;
             display: inline-block;
-            background: rgba(0,0,0,0.3);
             padding: 5px 25px;
-            border: 1px solid rgba(0,243,255,0.15);
-            border-radius: 4px;
         }
 
         /* Action Items */
         .action-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgb(from var(--text-dim) r g b / 5%);
             padding: 12px 15px;
             text-align: center;
             display: flex;
@@ -247,6 +245,7 @@
             color: var(--text-white);
             font-size: 0.95rem;
             font-weight: bold;
+            letter-spacing: 1px;
             position: relative;
             transition: all 0.2s;
             cursor: pointer;
@@ -254,8 +253,7 @@
         }
 
         .action-item:hover {
-            background: rgba(0, 243, 255, 0.15);
-            color: var(--text-white);
+            background: rgb(from var(--primary-cyan) r g b / 20%);
             border-color: var(--primary-cyan);
         }
 
@@ -287,30 +285,26 @@
             justify-content: center;
             gap: 8px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgb(from var(--text-dim) r g b / 5%);
             position: relative;
             transition: 0.3s;
             cursor: pointer;
         }
         .output-icon::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 6px; border-top: 1px solid #fff; border-left: 1px solid #fff;
+            content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 6px; border-top: 1px solid var(--text-dim); border-left: 1px solid var(--text-dim);
         }
         .output-icon::after {
-            content: ''; position: absolute; bottom: 0; right: 0; width: 6px; height: 6px; border-bottom: 1px solid #fff; border-right: 1px solid #fff;
+            content: ''; position: absolute; bottom: 0; right: 0; width: 6px; height: 6px; border-bottom: 1px solid var(--text-dim); border-right: 1px solid var(--text-dim);
         }
 
         .output-icon:hover {
-            background: rgba(0, 243, 255, 0.1);
+            background: rgb(from var(--primary-cyan) r g b / 20%);
             border-color: var(--primary-cyan);
-            box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.2);
-
         }
 
         .output-icon svg {
             width: 36px; height: 36px;
             fill: var(--primary-cyan);
-
         }
 
         .output-icon span {
@@ -356,6 +350,8 @@
             <div class="action-item">"结构等级方式"重写</div>
             <div class="action-item">生成 C-Suite Briefing Deck</div>
             <div class="action-item">结构化一分钟简报</div>
+            <div class="action-item">提炼核心洞察</div>
+            <div class="action-item">提炼独特观点，及其论证</div>
         </div>
 
         <!-- Card 2 -->
@@ -368,13 +364,14 @@
             <div class="card-header">
                 <div class="card-title">分析论证</div>
             </div>
-            <div class="action-item">提炼核心洞察</div>
             <div class="action-item">逻辑分析师</div>
             <div class="action-item">魔法问题: 识别主张 / 论据 / 连接</div>
-            <div class="action-item">提炼独特观点，及其论证</div>
+
             <div class="action-item">挑战核心假设</div>
             <div class="action-item">拆解关键要素和隐性逻辑</div>
             <div class="action-item">模拟正反方辩论</div>
+            <div class="action-item">分析内部张力</div>
+            <div class="action-item">寻找阿喀琉斯之踵</div>
         </div>
 
         <!-- Card 3 -->
@@ -391,8 +388,8 @@
             <a href="https://www.perplexity.ai/spaces/event-search-with-focus-ApEhUwwMT_C.W0orCXgkqQ" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
                 <div>搜索事件的某个指定重点</div>
                 <div class="subtext">
-                    • 支持/反对/利益相关方的观点<br>
-                    • 专家意见   • 媒体观点<br>
+                    • 支持 / 反对 / 利益相关方的观点<br>
+                    • 专家意见 &nbsp;&nbsp; &nbsp;&nbsp;  • 媒体观点<br>
                     • 观点演变的时间线、影响因素<br>
                     • 历史沿革的脉络、关键点<br>
                     • 先例事件和相似之处
@@ -425,8 +422,7 @@
             <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">事件结果的概率预测</a>
             <div class="action-item">探索进一步探讨的问题</div>
             <div class="action-item">潜在风险的预测和评估</div>
-            <div class="action-item">分析内部张力</div>
-            <div class="action-item">寻找阿喀琉斯之踵</div>
+
 
         </div>
 
@@ -444,7 +440,7 @@
                 <div>行业新闻战略预警速报</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 电信从业者视角 ]</div>
                 <div class="subtext">
-                    • 核心信号与预警评级<br>
+                    • 核心信号 / 预警评级<br>
                     • 初步影响研判<br>
                     • 核心待解问题与分析<br>
                     • 后续情报监测
@@ -454,10 +450,10 @@
                 <div>投资分析师提出犀利质询</div>
                 <div style="font-size:0.8rem;  letter-spacing:1px; margin:2px 0;">[ 对抗性分析 ]</div>
                 <div class="subtext">
-                    • 情景设定与叙事解构<br>
+                    • 情景设定 / 叙事解构<br>
                     • 对抗性审视<br>
-                    • 风险汇聚与决策裁定<br>
-                    • 前瞻性监测与动态推演
+                    • 风险汇聚 / 决策裁定<br>
+                    • 前瞻性监测 / 动态推演
                 </div>
             </a>
             <a href="https://poe.com/Strategist-Probe" class="action-item" style="text-decoration: none; border-bottom: 1px solid #00f2ff79"; target="_blank">
