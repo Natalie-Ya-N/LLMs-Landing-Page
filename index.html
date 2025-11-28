@@ -3,511 +3,675 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLMs</title>
+    <title>AI Directory</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
-    <base target="_blank" rel="noopener noreferrer"> 
-
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin-top: 0px;
-            margin-bottom: 0px;
+        :root {
+            --bg-color: #0a0e17;
+            --card-bg: #111625;
+            --text-main: #e0e0e0;
+            --text-muted: #969eba;
+            --accent-color: #ff6600;
+            --border-color: #2a3b55;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
             padding: 0;
-            background: #1b2736;
-            color: #ffffff;
         }
 
-        .flex-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0px;  
-            margin-bottom: 13px;     
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.2;
+            padding: 30px;
+            overflow-y: scroll; 
         }
 
-        .section {
-            flex: 2; 
-            margin-left: 10px; 
-            margin-right: 10px; 
-            margin-top: 0px;
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-top: 10px;
+            position: relative;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .mobile-view-btn {
+            display: block;
+            margin: 5px 0 0 auto;
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            max-width: fit-content;
+        }
+
+        .mobile-view-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Collapsed State */
+        .card.collapsed ul, 
+        .card.collapsed .bottom-actions {
+            display: none;
+        }
+
+        .card.collapsed {
+            padding-bottom: 10px;  
+        }
+
+        .card.collapsed .card-header {
+            margin-bottom: 5px;  
         }
         
-        .header{
-            font-size: 1rem;
-            color: #ff6600;
-            margin-top: 10px;
-            padding-bottom: 1px;
-            padding-left: 5px;
+        .card-header {
+            cursor: pointer; 
+            user-select: none;
         }
 
-        h1,
-        h2,
-        h3 {
-            letter-spacing: 0em;
-            line-height: 0.2;
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            min-height: 60px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 2px 8px var(--accent-color);
+        }
+
+        .card-header {
+            color: var(--accent-color);
+            font-size: 1.2rem;
             font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 1em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        p {
-            padding: 0em;
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-            font-size: 0.9rem;
+        .card-header span.sub-text {
+            font-size: 1rem;
+            color: var(--text-main);
         }
 
         ul {
             list-style: none;
-            padding: 0em;
-            margin-top: 0em;
-            margin-bottom: 1em;
         }
 
         li {
-            padding: 0px;
-            display: flex;
-            align-items: center;
-            margin-top: 0.5em;
-            font-size: 0.9rem;
+            margin-bottom: 0px;
         }
 
-        .item::before {
-            content: '🔗';
-            margin: 3px;
-            color: #ffffff; 
-            font-size: 0.7em;
-        }
-
-        a,
-        a.visited {
-            color: inherit;
+        a {
+            color: var(--text-main);
             text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 4px 4px;
+            border-radius: 5px;
+            transition: all 0.2s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        /* Icon placeholder using pseudo-element */
+        a::before {
+            content: '⚡'; 
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            opacity: 1;
         }
 
         a:hover {
-            color: rgb(0, 244, 0);
-            background-color: rgb(3, 31, 2);
+            background-color: var(--accent-color);
+            color: var(--bg-color);
         }
 
-        .section {
-            flex: 2;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-top: 0px;
-            background-color: #0015246d;
-            border-radius: 15px;
-            min-height: 200px; /* 设置最小高度，保持横排区块高度一致，数值需根据实际情况调整 */
-            padding: 15px; /* 可选：增加内边距，让内容与边框有一定距离 */
-            box-sizing: border-box; /* 可选：防止 padding 撑大 section 的实际实际高度 */
-            border: 1px solid transparent; /* 预先设置透明边框 */
-        }
-        
-        .section:hover {
-            border: 1px solid #ff6600;
-            box-shadow: 
-                3px 3px 5px #ff6600, /* 外阴影，橙色调 */
-                -2px -2px 3px rgba(255, 153, 51, 0.5), /* 外高光，浅橙色 */
-                inset -2px -2px 3px rgba(255, 153, 51, 0.3); /* 内高光，浅橙色 */
-        }
-        
-       /* button */
-        .button-simple {
+
+        /* Tag Styling */
+        .tag {
             display: inline-block;
-            font-size: 0.9rem;
-            color: #ff6600;
-            font-weight: 600;
-            margin-top: 3%;
-            margin-bottom: 1%;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            border: 1px solid #ff6600;
-            border-radius: 5px;
-            background-color: transparent;
-            text-decoration: none;
-            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 2px 2px;
+            margin-left: 2px;
+            color: var(--text-main);
+            opacity: 0.7;
+        }
+        
+        /* back to top button */
+        .bottom-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .button-simple:active {
-            transform: scale(0.95);
-        }
-
-        .section {
-            flex: 2;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-top: 0px;
-            background-color: #0015246d; 
-            border-radius: 15px;
-            min-height: 200px; /* 设置最小高度，保持横排区块高度一致，数值需根据实际情况调整 */
-            padding: 15px; /* 可选：增加内边距，让内容与边框有一定距离 */
-            box-sizing: border-box; /* 可选：防止 padding 撑大 section 的实际高度 */
-        }
-
-        #back-to-top {
-            position: fixed;
-            right: 50%;
-            bottom: 20px;
-            transform: translate(50%, -50%);
-            z-index: 999;
-            width: 160px;
-            height: 30px;
-            border: none;
-            background-color: #d8d6d5a3;
+        .action-btn {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
             font-size: 1rem;
-            font-weight: 600;
-            color: #ffffff;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 5px;
-            line-height: 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            padding-left: 10px; 
+        }
+        
+        .action-btn::before {
+            content: none;
         }
 
-        #back-to-top:hover {
-             color: rgb(0, 244, 0);
-             background-color: black;
+        .action-btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* Separator Line */
+        li.separator {
+            margin-top: 7px;
+        }
+        
+        li.separator::before {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 0.8px;
+            background-color: var(--border-color);
+            margin-bottom: 5px;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 1rem;
+            border: none;
+            outline: none;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        #backToTop:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
         }
 
         footer {
             text-align: center;
             font-size: 1rem;
             margin-top: 2em;
+            color: var(--text-muted);
         }
-        
-        #footer img {
-            display: block;
-            margin: 0 auto;
-            margin-bottom: 4rem;
-            max-width: 95%;
-            max-height: 100%;
-            mask: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+
+
+        /* Background Stars */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.513);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 2px rgba(255, 255, 255, 0.2); }
+            50% { opacity: 1; transform: scale(2); box-shadow: 0 0 10px rgba(255,255,255,0.8); }
+            100% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 2px rgba(255,255,255,0.2); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
-
-
 <body>
-    <div style="color:#ff6600; text-align: center; padding-bottom: 0px; padding-top: 30px; width: 100%;">
-        <h1 style="margin: 0.5rem; font-size: 1.5rem;">AI Directory</h1>
-    </div>
 
-    <div style="text-align: right; margin-top: 0px; margin-bottom: 10px;">
-        <span style="margin-right: 30px;">
-            <a href="mobile.html" target="_self"  class="button-simple">Mobile View</a>
-        </span>
-    </div>
+    <header>
+        <h1>AI Directory</h1>
+        <button id="toggleAllBtn" class="mobile-view-btn">Collapse All</button>
+    </header>
 
+    <div id="stars-container" class="stars-container"></div>
 
-    <div class="flex-container">
-        <div class="section">
-            <h2 class="header">LLMs</h2>
-
-            <hr style=border-color:#ff6600>
-
+    <div class="grid-container">
+        
+        <!-- LLMs -->
+        <div class="card">
+            <div class="card-header">LLMs</div>
             <ul>
-                <li class="item"><a href="https://chat.openai.com/">ChatGPT<span style="font-size: 0.8em; font-style: italic;"> by OpenAI</span></a></li>
-                <li class="item"><a href="https://copilot.microsoft.com/">... Microsoft Copilot</a></li>
-                <li class="item"><a href="https://gemini.google.com/app">Gemini<span style="font-size: 0.8em; font-style: italic;"> by Google</span></a></li>
-                                <li class="item"><a href="https://www.google.com/finance/beta/">... Google Finance</a></li> 
-                <li class="item"><a href="https://claude.ai/chat/7e6cda4b-e744-4791-ac12-c2866c08235f">Claude<span style="font-size: 0.8em; font-style: italic;"> by Anthropic</span></a></li>
-                <li class="item"><a href="https://www.meta.ai/">Llama<span style="font-size: 0.8em; font-style: italic;"> by Meta</span></a></li>
-                <li class="item"><a href="https://chat.mistral.ai/">Mistral</a></li>
-                <li class="item"><a href="https://x.ai/">Grok by xAI</a></li>                
-                <li class="item"><a href="https://pi.ai/talk">Pi, personal AI</a></li>
-                <li class="item"><a href="https://cohere.com/">Cohere</a></li>
-                <li class="item"><a href="https://chat.reka.ai/chat">Reka</a></li>                
+                <li><a href="https://chat.openai.com/">ChatGPT<span class="tag"> by OpenAI</span></a></li>
+                <li><a href="https://copilot.microsoft.com/">... Microsoft Copilot</a></li>
+                <li><a href="https://gemini.google.com/app">Gemini<span class="tag"> by Google</span></a></li>
+                <li><a href="https://www.google.com/finance/beta/">... Google Finance</a></li> 
+                <li><a href="https://claude.ai/chat/7e6cda4b-e744-4791-ac12-c2866c08235f">Claude<span class="tag"> by Anthropic</span></a></li>
+                <li><a href="https://www.meta.ai/">Llama<span class="tag"> by Meta</span></a></li>
+                <li><a href="https://chat.mistral.ai/">Mistral</a></li>
+                <li><a href="https://x.ai/">Grok by xAI</a></li>                
+                <li><a href="https://pi.ai/talk">Pi, personal AI</a></li>
+                <li><a href="https://cohere.com/">Cohere</a></li>
+                <li><a href="https://chat.reka.ai/chat">Reka</a></li>  
+            </ul>
+        </div>
+
+        <!-- LLMs (China) -->
+        <div class="card">
+            <div class="card-header">LLMs <span class="sub-text">China</span></div>
+            <ul>
+                <li><a href="https://chat.deepseek.com/">deepseek<span class="tag"></span></a></li>
+                <li><a href="https://tongyi.aliyun.com/">通义千问 <span class="tag">by 阿里</span></a></li>   
+                <li><a href="https://chat.qwen.ai/">... Qwen</a></li>         
+                <li><a href="https://tingwu.aliyun.com/home">... 通义听悟</a></li>         
+                <li><a href="https://www.doubao.com/chat/">豆包 <span class="tag"> by 字节</span></a></li>
+                <li><a href="https://yiyan.baidu.com/">文心一言 <span class="tag"> by 百度</span></a></li>     
+            </ul>
+        </div>
+
+        <!-- Search -->
+        <div class="card">
+            <div class="card-header">Search</div>
+            <ul>
+                <li><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
+                <li><a href="https://www.perplexity.ai/finance">... Perplexity Finance</a></li>                
+                <li><a href="https://www.phind.com/search?home=true">Phind</a></li>
+                <li><a href="https://websets.exa.ai/">Exa Websets</a></li>
+                <li><a href="https://exa.ai/search?c=all">Exa Search</a></li>
+                <li><a href="https://kagi.com/">Kagi Search</a></li>                  
+                <li><a href="https://you.com/">YOU.com<br/></a></li>
+                <li><a href="https://iask.ai/">iAsk<br/></a></li>
+                <li><a href="https://komo.ai/">KOMO Search</a></li>
+            </ul>
+            <div class="bottom-actions">
+                <a href="https://demo.exa.ai/hallucination-detector" class="action-btn">Exa Hallucination Detector</a>
+                <a href="https://poe.com/Search_Planner" class="action-btn">Poe / Search Planner</a>
+            </div>
+        </div>
+
+        <!-- Search (China) -->
+        <div class="card">
+            <div class="card-header">Search <span class="sub-text">China</span></div>
+            <ul>
+                <li><a href="https://felo.ai/search">Felo Search</a></li>   
+                <li><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
+                <li><a href="https://n.cn/">纳米搜索<span class="tag">原360搜索</span></a></li>
+                <li><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
+                <li><a href="https://bochaai.com/">博查AI搜索</a></li>
+                <li><a href="https://bilin.ai/">Bilin Search</a></li>     
+                <li><a href="https://floatsearch.ai">Float Search</a></li>
+            </ul>
+        </div>
+
+        <!-- Playground / Arena -->
+        <div class="card">
+            <div class="card-header">Playground / Arena</div>
+            <ul>
+
+                <li><a href="https://chat.lmsys.org/">LMArena<span class="tag"> by UC Berkeley</span></a></li>
+                <li><a href="https://beta.lmarena.ai/">... LMArena Beta</a></li>
+                <li><a href="https://huggingface.co/spaces">Hugging Face Spaces</a></li>
+                <li><a href="https://build.nvidia.com/explore/discover">Nvidia Build<span class="tag"> # open-source</span></a></li>
+                <li><a href="https://ai.azure.com/"> Azure AI Studio </a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
+                <li><a href="https://labs.google/">Google Labs</a></li>      
+                <li><a href="https://copilot.microsoft.com/labs//">Copilot Labs <span class="tag">by Microsoft</span> </a></li>                           
+                <li><a href="https://platform.openai.com/">OpenAI Playground</a></li>
+                <li><a href="https://console.groq.com/playground">Groq Playground</a></li>
+                <li><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
+                <li><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
+                <li><a href="https://dashboard.cohere.com/playground/chat">Cohere Playground</a></li>
+                
+                <li class="separator"></li>
+
+                <li><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span class="tag"> by Hugging Face</span></a></li> 
+
+            </ul>
+        </div>
+
+        <!-- LLM Wrapper / Agent -->
+        <div class="card">
+            <div class="card-header">LLM Wrapper / Agent</div>
+            <ul>
+                <li><a href="https://poe.com/">Poe<span class="tag"> by Quora</span></a></li>
+                <li><a href="https://duckduckgo.com/?q=DuckDuckGo&ia=chat"> DuckDuckGo Chat </a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li> 
+                <li><a href="https://www.genspark.ai/">Genspark</a></li>
+                <li><a href="https://mulerun.com/">MuleRun</a></li>
+
+                <li class="separator"></li>
+
+
+            </ul>
+            <div class="bottom-actions">
+                <a href="Knowledge_Digest_Workflow.html" class="action-btn">Knowledge Digest Workflow</a>
+            </div>
+        </div>
+
+        <!-- API & APP -->
+        <div class="card">
+            <div class="card-header">API & APP</div>
+            <ul>
+                <li><a href="https://openrouter.ai/">OpenRouter</a></li>      
+                <li><a href="https://groq.com/">Groq<span class="tag"> # open-source</span></a></li>
+                <li><a href="https://inference.cerebras.ai/">Cerebras<span class="tag"> # open-source</span></a></li>
+                <li><a href="https://cloud.sambanova.ai/">SambaNova<span class="tag"> # open-source</span></a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://msty.studio/welcome/">Msty Studio<span class="tag"> # w. API</span></a></li>
+                <li><a href="https://msty.studio/data/">... Msty Studio - Data Mgmt.</a></li>
+                <li><a href="https://web.chatboxai.app/">ChatBox<span class="tag"> # w. API</span></a></li>
+            </ul>
+        </div>
+
+        <!-- WIKI & Fintech -->
+        <div class="card">
+            <div class="card-header">WIKI & FinTech</div>
+            <ul>
+                <li><a href="https://explorer.globe.engineer/">Globe Explorer</a></li>
+                <li><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
+                <li><a href="https://consillium.vercel.app/">Consillium<span class="tag"> via vercel</span></a></li>
+                <li><a href="https://goblin.tools/"> Magic To-do <span class="tag"> by goblin.tools </span></a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://www.beebee.ai/">BeeBee</a></li>
+                <li><a href="https://reportify.cc/">Reportify</a></li>
+                <li><a href="https://www.secinsights.ai/">SEC Insights</a></li>   
+
+            </ul>
+        </div>
+
+        <!-- Reading & YouTube -->
+        <div class="card">
+            <div class="card-header">Reading & YouTube</div>
+            <ul>
+
+                <li><a href="https://poe.com/Summary_toPPT_ZH">Poe /  Summary in PPT</a></li>   
+                <li><a href="https://chat.openai.com/g/g-ujcnMvq3H">GPTs / Summary in PPT</a></li>        
+
+                <li class="separator"></li>
+
+                <li><a href="https://summarize.ing/en">Summarize.ing<span class="tag"> # 20/day</span></a></li>
+                <li><a href="https://www.summarize.tech/">Summarize.tech</a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://www.youtube-transcript.io/">YouTube Ttranscript</a></li>
+                <li><a href="https://notegpt.io/youtube-transcript-downloader">NoteGPT</a></li>
+                <li><a href="https://youtubetotranscript.com/">Youtube to Transcript</a></li>
+
+            </ul>
+        </div>
+
+
+        <!-- Learning -->
+        <div class="card">
+            <div class="card-header">Learning</div>
+            <ul>
+                <li><a href="https://notebooklm.google/?location=us-only">NotebookLM<span class="tag"> by Google </span></a></li>
+                <li><a href="https://learning.google.com/experiments/learn-about/signup">Learn About by Google</a></li>
+                <li><a href="https://illuminate.withgoogle.com/home"> Illuminate <span class="tag"> by Google</span> </a></li>
+                <li><a href="https://www.atlas.org/home">Atlas.org </a></li>
+                <li><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners">GPTs / Paper Sum. for Learners</a></li>
+   
+                <li><a href="https://typeset.io/">SciSpace</a></li>
+                <li><a href="https://consensus.app/search/">Consensus</a></li>
+                <li><a href="https://www.chatpdf.com/">ChatPDF</a></li>
+                <li><a href="https://www.alphaxiv.org/explore">alphaXiv</a></li>
+                <li><a href="https://www.txyz.ai/?home">txyz</a></li>
+                <li><a href="https://www.explainpaper.com/">Explainpaper</a></li>
+                <li><a href="https://yiyibooks.cn/">一译<span class="tag"> # Translation</span></a></li>
+                <li><a href="https://turbolearn.net/">TurboLearn</a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus">GPTs / Consensus</a></li>    
+                <li><a href="https://chat.openai.com/g/g-NgAcklHd8-scispace">GPTs / SciSpace</a></li>    
+                <li><a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai">GPTs / ScholarAI</a></li>    
+                <li><a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant">GPTs / AskYourPDF</a></li>    
+
+            </ul>
+        </div>
+
+        <!-- Writing & Coding -->
+        <div class="card">
+            <div class="card-header">Writing & Coding</div>
+            <ul>
+                <li><a href="https://app.wordtune.com/"> Wordtune <span class="tag"> by AI21 Labs</span></a></li>
+                <li><a href="https://poe.com/EmailResponder_YAYA">Poe / EmailResponder</a></li>
+                <li><a href="https://poe.com/Correct_English_YAYA">Poe / Correct English</a></li>
+                <li><a href="https://poe.com/10_Alt_Phrasings">Poe / 10 Alt. Phrasings</a></li>
+
+                <li class="separator"></li>
+
+
+                <li><a href="https://firebase.studio/">Firebase <span class="tag"> by Google</span></a></li>
+                <li><a href="https://codewiki.google/">Code Wiki<span class="tag"> by Google</span></a></a></li>                         
+                <li><a href="https://deepwiki.com/">DeepWiki</a></li>                
+                <li><a href="https://devv.ai/zh">DEVV</a></li>
+                <li><a href="https://codeium.com/live/general">Codeium</a></li>            
+                <li><a href="https://v0.dev/"> v0 <span class="tag"> by Vercel</span></a></li>
+                <li><a href="https://www.blackbox.ai/">Blackbox</a></li>
+                <li><a href="https://jit.codes/">Jit Codes</a></li>
+            </ul>
+        </div>
+
+        <!-- Hunting AI Tools -->
+        <div class="card">
+            <div class="card-header">Hunting AI Tools</div>
+            <ul>
+                <li><a href="https://www.producthunt.com/">Product Hunt</a></li>
+                <li><a href="https://www.futurepedia.io/">Futurepedia</a></li>
+                <li><a href="https://www.futuretools.io/">Furure Tools</a></li>
+                <li><a href="https://opentools.ai/">Open Tools</a></li>
+                <li><a href="https://theresanaiforthat.com/">There's an AI for That</a></li>           
+                <li><a href="https://www.raghut.com/">Raghut</a></li>
+
+                <li class="separator"></li>
+
+                <li><a href="https://alternativeto.net/">AlternativeTo<span class="tag"> # find alternatives</span></a></li>
+                <li><a href="https://www.similarsites.com/">SimilarSites<span class="tag"> # find alternatives</span></a></li>
+
+            </ul>
+        </div>
+
+        <!-- Cloud Console -->
+        <div class="card">
+            <div class="card-header">Cloud Console</div>
+            <ul>
+                <li><a href="https://portal.azure.com/#home">Azure<span class="tag"> by Micorosft</span></a></li>
+                <li><a href="https://console.cloud.google.com/vertex-ai?hl=en&project=turing-poet-416719">Vertex<span class="tag"> by Google</span></a>
+                <li><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span class="tag"> by Amazon</span></a>
+                <li><a href="https://cloud.llamaindex.ai/"> Llama Cloud <span class="tag"> by Meta</span></a>
+                <li><a href="https://www.netlify.com/">Netlify</a></li>
             </ul>
         </div>
         
-        <div class="section">
-            <h2 class="header">LLMs  <span style="font-size: 0.8em; font-style: italic;">#大陆 </span> </h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://chat.deepseek.com/">deepseek<span style="font-size: 0.8em; font-style: italic;"></span></a></li>
-                <li class="item"><a href="https://tongyi.aliyun.com/">通义千问 <span style="font-size: 0.8em; font-style: italic;">by 阿里</span></a></li>   
-                <li class="item"><a href="https://chat.qwen.ai/">... Qwen</a></li>         
-                <li class="item"><a href="https://tingwu.aliyun.com/home">... 通义听悟</a></li>         
-                <li class="item"><a href="https://www.doubao.com/chat/">豆包 <span style="font-size: 0.8em; font-style: italic;"> by 字节</span></a></li>
-                <li class="item"><a href="https://yiyan.baidu.com/">文心一言 <span style="font-size: 0.8em; font-style: italic;"> by 百度</span></a></li>     
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="header">Search</h2>
-
-            <hr style=border-color:#ff6600>
-       
-            <ul>
-                <li class="item"><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
-                <li class="item"><a href="https://www.perplexity.ai/finance">... Perplexity Finance</a></li>                
-                <li class="item"><a href="https://www.phind.com/search?home=true">Phind</a></li>
-                <li class="item"><a href="https://websets.exa.ai/">Exa Websets</a></li>
-                <li class="item"><a href="https://exa.ai/search?c=all">Exa Search</a></li>
-                <li class="item"><a href="https://kagi.com/">Kagi Search</a></li>                  
-                <li class="item"><a href="https://you.com/">YOU.com<br/></a></li>
-                <li class="item"><a href="https://iask.ai/">iAsk<br/></a></li>
-                <li class="item"><a href="https://komo.ai/">KOMO Search</a></li>
-                <li class="item"><a href="https://scira.ai/">Scira</a></li>
-
-                <a href="https://demo.exa.ai/hallucination-detector" target="_blank" class="button-simple">Exa Hallucination-detector</a>
-                <a href="https://poe.com/Search_Planner" target="_blank" class="button-simple">Poe / Search Planner</a>
-            </ul>
-        </div>
-      
-        <div class="section">
-            <h2 class="header">Search <span style="font-size: 0.8em; font-style: italic;">#大陆 </span></h2>
-
-            <hr style=border-color:#ff6600>
-                            
-            <ul>
-                <li class="item"><a href="https://felo.ai/search">Felo Search</a></li>   
-                <li class="item"><a href="https://metaso.cn/">秘塔 AI 搜索</a></li>
-                <li class="item"><a href="https://n.cn/">纳米搜索（原360搜索）</a></li>
-                <li class="item"><a href="https://search.tiangong.cn/">天工 AI 搜索</a></li>
-                <li class="item"><a href="https://bochaai.com/">博查AI搜索</a></li>
-                <li class="item"><a href="https://bilin.ai/">Bilin Search</a></li>     
-                <li class="item"><a href="https://floatsearch.ai">Float Search</a></li>
-                </ul>
-        </div>
     </div>
 
-    <div class="flex-container">
-        <div class="section">
-            <h2 class="header">Playground / Arena</h2>
+    <footer>
+        <p>© Natalie. All rights reserved.</p>
+    </footer>
 
-            <hr style=border-color:#ff6600>
+    <button onclick="topFunction()" id="backToTop" title="Go to top">⇑</button>
 
-            <ul>
-                <li class="item"><a href="https://chat.lmsys.org/">LMArena<span style="font-size: 0.8em; font-style: italic;"> by UC Berkeley</span></a></li>
-                <li class="item"><a href="https://beta.lmarena.ai/">... LMArena Beta</a></li>
-                <li class="item"><a href="https://huggingface.co/spaces">Hugging Face Spaces</a></li>
-                <li class="item"><a href="https://build.nvidia.com/explore/discover">Nvidia Build<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-                <li class="item"><a href="https://ai.azure.com/"> Azure AI Studio </a></li>
-                <hr size="1" style="width: 50%; margin-left: 0;">                                
-                <li class="item"><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
-                <li class="item"><a href="https://labs.google/">Google Labs</a></li>      
-                <li class="item"><a href="https://copilot.microsoft.com/labs//">Copilot Labs <span style="font-size: 0.8em; font-style: italic;">by Microsoft</span> </a></li>                           
-                <li class="item"><a href="https://platform.openai.com/">OpenAI Playground</a></li>
-                <li class="item"><a href="https://console.groq.com/playground">Groq Playground</a></li>
-                <li class="item"><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
-                <li class="item"><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
-                <li class="item"><a href="https://dashboard.cohere.com/playground/chat">Cohere Playground</a></li>
-
-                <hr size="1" style="width: 50%; margin-left: 0;">
-
-                <li class="item"><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span style="font-size: 0.8em; font-style: italic;"> by Hugging Face</span></a></li>                
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2 class="header">LLM Wrapper / Agent </h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://poe.com/">Poe<span style="font-size: 0.8em; font-style: italic;"> by Quora</span></a></li>
-                <li class="item"><a href="https://duckduckgo.com/?q=DuckDuckGo&ia=chat"> DuckDuckGo Chat </a></li>
-
-                <hr size="1" style="width: 50%; margin-left: 0;">
-                
-                <li class="item"><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li> 
-                <li class="item"><a href="https://www.genspark.ai/">Genspark</a></li>
-                <li class="item"><a href="https://mulerun.com/">MuleRun</a></li>
-               
-                <hr size="1" style="width: 50%; margin-left: 0;">
-
-                 <a href="Knowledge_Digest_Workflow.html" target="_self"  class="button-simple">Knowledge Digest Workflow</a>
-
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2 class="header">API & APP </h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-
-
-                <li class="item"><a href="https://openrouter.ai/">OpenRouter</a></li>      
-                <li class="item"><a href="https://groq.com/">Groq<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-                <li class="item"><a href="https://inference.cerebras.ai/">Cerebras<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-                <li class="item"><a href="https://cloud.sambanova.ai/">SambaNova<span style="font-size: 0.8em; font-style: italic;"> # open-source only</span></a></li>
-                                
-                <hr size="1" style="width: 50%; margin-left: 0;">
-
-                <li class="item"><a href="https://msty.studio/welcome/">Msty Studio<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
-                <li class="item"><a href="https://msty.studio/data/">... Msty Studio - Data Mgmt.</a></li>
-                <li class="item"><a href="https://web.chatboxai.app/">ChatBox<span style="font-size: 0.8em; font-style: italic;"> # w. API</span></a></li>
-
-            </ul>
-        </div>
-
-    </div>
-
-
-    <div class="flex-container">
-        <div class="section">
-            <h2 class="header">WIKI & FinTech</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://explorer.globe.engineer/">Globe Explorer</a></li>
-                <li class="item"><a href="https://www.wolframalpha.com/">Wolfram Alpha</a></li>
-                <li class="item"><a href="https://consillium.vercel.app/">Consillium<span style="font-size: 0.8em; font-style: italic;"> via vercel</span></a></li>
-                <li class="item"><a href="https://goblin.tools/"> Magic To-do <span style="font-size: 0.8em; font-style: italic;"> by goblin.tools </span></a></li>
-                
-                <hr size="1" style="width: 50%; margin-left: 0;">
-
-                <li class="item"><a href="https://www.beebee.ai/">BeeBee</a></li>
-                <li class="item"><a href="https://reportify.cc/">Reportify</a></li>
-                <li class="item"><a href="https://www.secinsights.ai/">SEC Insights</a></li>    
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="header">Summarizing YouTube</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://summarize.ing/en">Summarize.ing<span style="font-size: 0.8em; font-style: italic;"> # 20/day</span></a></li>
-                <li class="item"><a href="https://www.summarize.tech/">Summarize.tech<span style="font-size: 0.8em; font-style: italic;"> # daily limits</span></a></li>
-                 <li class="item"><a href="https://poe.com/Summary_toPPT_ZH">Poe /  YouTube Summary in PPT Format <span style="font-size: 0.8em; font-style: italic;"> # daily limits</span></a></li>          
-
-                <hr size="1" style="width: 50%; margin-left: 0;">       
-                             
-                <li class="item"><a href="https://www.youtube-transcript.io/">YouTube Ttranscript<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
-                <li class="item"><a href="https://notegpt.io/youtube-transcript-downloader">NoteGPT<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
-                <li class="item"><a href="https://youtubetotranscript.com/">Youtube to Transcript<span style="font-size: 0.8em; font-style: italic;"> # Transcription</span></a>
-
-            </ul>
-        </div>
-    </div>
-
-    <div class="flex-container">
-        <div class="section">
-            <h2 class="header">Learning</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://notebooklm.google/?location=us-only">NotebookLM<span style="font-size: 0.8em; font-style: italic;"> by Google </span></a></li>
-                <li class="item"><a href="https://learning.google.com/experiments/learn-about/signup">Learn About by Google</a></li>
-                <li class="item"><a href="https://illuminate.withgoogle.com/home"> Illuminate <span style="font-size: 0.8em; font-style: italic;"> by Google</span> </a></li>
-                <li class="item"><a href="https://www.atlas.org/home">Atlas.org </a></li>
-                <li class="item"><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Academic Paper Sum. for Learners</a></li>
-                <li class="item"><a href="https://chat.openai.com/g/g-ujcnMvq3H"><img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / Summarize Content（中文PPT形式）</a></li>                
-                <li class="item"><a href="https://typeset.io/">SciSpace</a></li>
-                <li class="item"><a href="https://consensus.app/search/">Consensus</a></li>
-                <li class="item"><a href="https://www.chatpdf.com/">ChatPDF</a></li>
-                <li class="item"><a href="https://www.alphaxiv.org/explore">alphaXiv</a></li>
-                <li class="item"><a href="https://www.txyz.ai/?home">txyz</a></li>
-                <li class="item"><a href="https://www.explainpaper.com/">Explainpaper</a></li>
-                <li class="item"><a href="https://yiyibooks.cn/">一译<span style="font-size: 0.8em; font-style: italic;"> # Translation</span></a></li>
-                <li class="item"><a href="https://turbolearn.net/">TurboLearn</a></li>
-
-                <p>&nbsp⁎ <img src="chatgpt-white.svg" Academwidth="16" height="16"ic  alt="SVG图像" /> / GPTs: </p>
-                <p> &nbsp <a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus"><span style="font-size: 0.7em;">&nbsp 🔗</span>Consensus</a>&nbsp<a href="https://chat.openai.com/g/g-NgAcklHd8-scispace"><span style="font-size: 0.7em;">&nbsp 🔗</span>SciSpace</a></p>
-                <p> &nbsp <a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai"><span style="font-size: 0.7em;">&nbsp 🔗</span>ScholarAI</a>&nbsp<a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant"><span style="font-size: 0.7em;">&nbsp 🔗</span>AskYourPDF Research Asst.</a></p>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="header">Writing & Coding</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://app.wordtune.com/"> Wordtune <span style="font-size: 0.8em; font-style: italic;"> by AI21 Labs</span></a></li>
-                <li class="item"><a href="https://poe.com/EmailResponder_YAYA">Poe / EmailResponder</a></li>
-                <li class="item"><a href="https://poe.com/Correct_English_YAYA">Poe / Correct English</a></li>
-                <li class="item"><a href="https://poe.com/10_Alt_Phrasings">Poe / 10 Alt. Phrasings</a></li>
-                
-                <hr size="1" style="width: 50%; margin-left: 0;">
-
-                <li class="item"><a href="https://www.netlify.com/">Netlify</a></li>
-                <li class="item"><a href="https://codewiki.google/">Code Wiki<span style="font-size: 0.8em; font-style: italic;"> by Google</span></a></a></li>                         
-                <li class="item"><a href="https://deepwiki.com/">DeepWiki</a></li>                
-                <li class="item"><a href="https://devv.ai/zh">DEVV</a></li>
-                <li class="item"><a href="https://codeium.com/live/general">Codeium</a></li>            
-                <li class="item"><a href="https://v0.dev/"> v0 <span style="font-size: 0.8em; font-style: italic;"> # by Vercel</span></a></li>
-                <li class="item"><a href="https://www.blackbox.ai/">Blackbox</a></li>
-                <li class="item"><a href="https://jit.codes/">Jit Codes</a></li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="flex-container">
-        <div class="section">
-            <h2 class="header">Hunting AI Tools</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://www.producthunt.com/">Product Hunt</a></li>
-                <li class="item"><a href="https://www.futurepedia.io/">Futurepedia</a></li>
-                <li class="item"><a href="https://www.futuretools.io/">Furure Tools</a></li>
-                <li class="item"><a href="https://opentools.ai/">Open Tools</a></li>
-                <li class="item"><a href="https://theresanaiforthat.com/">There's an AI for That</a></li>           
-                <li class="item"><a href="https://www.raghut.com/">Raghut</a></li>
-
-                <hr size="1" style="width: 50%; margin-left: 0;">
-     
-                <li class="item"><a href="https://alternativeto.net/">AlternativeTo<span style="font-size: 0.8em; font-style: italic;"> # find alternatives</span></a></li>
-                <li class="item"><a href="https://www.similarsites.com/">SimilarSites<span style="font-size: 0.8em; font-style: italic;"> # find alternatives</span></a></li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="header">Cloud Console</h2>
-
-            <hr style=border-color:#ff6600>
-
-            <ul>
-                <li class="item"><a href="https://portal.azure.com/#home">Azure<span style="font-size: 0.8em; font-style: italic;"> # by Micorosft</span></a></li>
-                <li class="item"><a href="https://console.cloud.google.com/vertex-ai?hl=en&project=turing-poet-416719">Vertex<span style="font-size: 0.8em; font-style: italic;"> # by Google</span></a>
-                <li class="item"><a href="https://firebase.studio/">Firebase by Google</a></li>
-                <li class="item"><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span style="font-size: 0.8em; font-style: italic;"> # by Amazon</span></a>
-                <li class="item"><a href="https://cloud.llamaindex.ai/"> Llama Cloud <span style="font-size: 0.8em; font-style: italic;"> # by Meta</span></a>
-            </ul>
-        </div>
-    </div>
-
-    <div id="back-to-top">Back to Top</div>
     <script>
-      document.getElementById('back-to-top').addEventListener('click', function() {
-        window.scrollTo(0, 0);
-      });
-    </script>
+        // Get the button
+        let mybutton = document.getElementById("backToTop");
 
-<br>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
 
-    <p style="animation: blink 1.5s infinite; text-align: center; color: rgb(0, 170, 255); font-size: 1.1rem"> © Natalie </p>
-
-        <style>
-        @keyframes blink {
-            0% { color: rgb(0, 153, 255); }
-            25% { color: rgb(208, 0, 255); }
-            50% { color: yellow; }
-            75% { color: rgb(255, 136, 0); }
-            100% { color: rgb(4, 200, 4); }
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-        </style>
-    
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Generate Stars
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('stars-container');
+            const starCount = 80; // Number of stars
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random positioning
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Random size (larger for star shape)
+                const size = Math.random() * 6 + 4; 
+                
+                // Random animation duration and delay
+                const duration = Math.random() * 3 + 2; // 2-5s
+                const delay = Math.random() * 5;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--delay', `${delay}s`);
+                
+                // Random blur for depth effect
+                if (Math.random() > 0.3) {
+                    star.style.filter = `blur(${Math.random() * 2}px)`;
+                }
+
+                container.appendChild(star);
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Collapse/Expand Functionality
+            const toggleAllBtn = document.getElementById('toggleAllBtn');
+            const cards = Array.from(document.querySelectorAll('.card'));
+            const cardHeaders = document.querySelectorAll('.card-header');
+            let isAllCollapsed = false;
+
+            // Global Toggle
+            if (toggleAllBtn) {
+                toggleAllBtn.addEventListener('click', () => {
+                    isAllCollapsed = !isAllCollapsed;
+                    
+                    if (isAllCollapsed) {
+                        cards.forEach(card => card.classList.add('collapsed'));
+                        toggleAllBtn.textContent = "Expand All";
+                    } else {
+                        cards.forEach(card => card.classList.remove('collapsed'));
+                        toggleAllBtn.textContent = "Collapse All";
+                    }
+                });
+            }
+
+            // Row-based Expansion/Collapse
+            cardHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const card = header.parentElement;
+                    const rowTop = card.offsetTop;
+                    const tolerance = 10; // Tolerance for slight misalignments
+                    const rowCards = cards.filter(c => Math.abs(c.offsetTop - rowTop) < tolerance);
+                    
+                    if (card.classList.contains('collapsed')) {
+                        // Expand all in same row
+                        rowCards.forEach(c => c.classList.remove('collapsed'));
+                    } else {
+                        // Collapse all in same row
+                        rowCards.forEach(c => c.classList.add('collapsed'));
+                    }
+                });
+            });
+        });
 
     
-    <div id="footer">
-        <img src="image.jpg" alt="Image">
-    </div>
+    // 卡片内的链接在新窗口打开
+    document.querySelectorAll('.card a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
 
+    </script>
 
 </body>
 </html>
