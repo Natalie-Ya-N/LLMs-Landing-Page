@@ -27,7 +27,6 @@
             color: var(--text-main);
             line-height: 1.2;
             padding: 30px;
-            overflow-y: scroll; 
         }
 
         header {
@@ -121,6 +120,7 @@
         .card-header span.sub-text {
             font-size: 1rem;
             color: var(--text-main);
+            opacity: 0.7;
         }
 
         ul {
@@ -169,6 +169,7 @@
             margin-left: 2px;
             color: var(--text-main);
             opacity: 0.7;
+            font-style: italic;
         }
         
         /* back to top button */
@@ -245,34 +246,6 @@
             color: var(--text-muted);
         }
 
-
-        /* Background Stars */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .star {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.513);
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            opacity: 0;
-            animation: twinkle var(--duration) ease-in-out infinite;
-            animation-delay: var(--delay);
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 2px rgba(255, 255, 255, 0.2); }
-            50% { opacity: 1; transform: scale(2); box-shadow: 0 0 10px rgba(255,255,255,0.8); }
-            100% { opacity: 0; transform: scale(0.5); box-shadow: 0 0 2px rgba(255,255,255,0.2); }
-        }
-
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .grid-container {
@@ -292,7 +265,6 @@
         <button id="toggleAllBtn" class="mobile-view-btn">Collapse All</button>
     </header>
 
-    <div id="stars-container" class="stars-container"></div>
 
     <div class="grid-container">
         
@@ -341,9 +313,9 @@
                 <li><a href="https://you.com/">YOU.com<br/></a></li>
                 <li><a href="https://iask.ai/">iAsk<br/></a></li>
                 <li><a href="https://komo.ai/">KOMO Search</a></li>
-            </ul>
 
-            <li class="separator"></li>
+                <li class="separator"></li>
+            </ul>
             
             <div class="bottom-actions">
                 <a href="https://demo.exa.ai/hallucination-detector" class="action-btn">Exa Hallucination Detector</a>
@@ -586,41 +558,6 @@
             document.documentElement.scrollTop = 0;
         }
 
-        // Generate Stars
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.getElementById('stars-container');
-            const starCount = 80; // Number of stars
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                
-                // Random positioning
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                
-                // Random size (larger for star shape)
-                const size = Math.random() * 6 + 4; 
-                
-                // Random animation duration and delay
-                const duration = Math.random() * 3 + 2; // 2-5s
-                const delay = Math.random() * 5;
-                
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.setProperty('--duration', `${duration}s`);
-                star.style.setProperty('--delay', `${delay}s`);
-                
-                // Random blur for depth effect
-                if (Math.random() > 0.3) {
-                    star.style.filter = `blur(${Math.random() * 2}px)`;
-                }
-
-                container.appendChild(star);
-            }
-        });
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
