@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,8 @@
             --bg-color: #020205;
             --card-bg: rgba(10, 15, 30, 0.929);
             --primary-cyan: #3AA99F;
-            --text-white: #fafaff;;
+            --text-white: #fafaff;
+            ;
             --text-dim: #AABBCF;
         }
 
@@ -29,7 +31,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
-            zoom: 0.92;  
+            zoom: 0.92;
         }
 
         /* Title Section */
@@ -44,12 +46,12 @@
             font-size: 2rem;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--primary-cyan); 
+            color: var(--primary-cyan);
             letter-spacing: 4px;
             margin-bottom: 5px;
         }
 
-        
+
 
         /* Top Node */
         .top-node {
@@ -64,11 +66,9 @@
             border: 1px solid rgb(from var(--text-dim) r g b / 20%);
             padding: 10px;
             text-align: center;
-            clip-path: polygon(
-                15px 0, 100% 0, 
-                100% calc(100% - 15px), calc(100% - 15px) 100%, 
-                0 100%, 0 15px
-            );
+            clip-path: polygon(15px 0, 100% 0,
+                    100% calc(100% - 15px), calc(100% - 15px) 100%,
+                    0 100%, 0 15px);
             position: relative;
 
         }
@@ -91,10 +91,15 @@
         }
 
         @media (max-width: 1024px) {
-            .grid-container { grid-template-columns: repeat(2, 1fr); }
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
+
         @media (max-width: 768px) {
-            .grid-container { grid-template-columns: 1fr; }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Card Design */
@@ -120,7 +125,8 @@
         /* Card Header */
         .card-header {
             position: absolute;
-            top: -5px; /* 盖住上边框 */
+            top: -5px;
+            /* 盖住上边框 */
             left: 50%;
             transform: translateX(-50%);
             background-color: rgb(from var(--primary-cyan) r g b / 70%);
@@ -136,14 +142,12 @@
             border-radius: 10px;
 
             /* 倒梯形 */
-            clip-path: polygon(
-                0 0, 100% 0, 
-                90% 100%, 10% 100%
-            );
+            clip-path: polygon(0 0, 100% 0,
+                    90% 100%, 10% 100%);
             width: 60%;
             text-align: center;
         }
-               
+
         /* Tech Decoration Corners */
         .tech-deco {
             position: absolute;
@@ -159,12 +163,12 @@
             border: none;
             box-shadow: none;
             opacity: 0.6;
-            
-        /* 利用背景渐变绘制：一条横线、一条竖线、一条斜线 */
-        background: 
-            linear-gradient(90deg, var(--primary-cyan), var(--primary-cyan)) 15px 0 / 100% 2px no-repeat,
-            linear-gradient(180deg, var(--primary-cyan), var(--primary-cyan)) 0 15px / 2px 100% no-repeat,
-            linear-gradient(135deg, transparent 42%, var(--primary-cyan) 42%, var(--primary-cyan) 45%, transparent 45%) 0 0 / 22px 22px no-repeat;
+
+            /* 利用背景渐变绘制：一条横线、一条竖线、一条斜线 */
+            background:
+                linear-gradient(90deg, var(--primary-cyan), var(--primary-cyan)) 15px 0 / 100% 2px no-repeat,
+                linear-gradient(180deg, var(--primary-cyan), var(--primary-cyan)) 0 15px / 2px 100% no-repeat,
+                linear-gradient(135deg, transparent 42%, var(--primary-cyan) 42%, var(--primary-cyan) 45%, transparent 45%) 0 0 / 22px 22px no-repeat;
             z-index: 5;
         }
 
@@ -182,51 +186,74 @@
 
         /* 定义闪烁动画  */
         @keyframes signal-blink {
-            0%, 100% { opacity: 0.5; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 10px var(--primary-cyan); }
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+                box-shadow: 0 0 10px var(--primary-cyan);
+            }
         }
 
-       
+
         .deco-tr {
-            top: 0; right: 0;
-            width: 60px; height: 10px;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 10px;
             display: flex;
             justify-content: flex-end;
             align-items: flex-start;
             gap: 5px;
         }
+
         .deco-tr span {
-            width: 6px; height: 6px;
+            width: 6px;
+            height: 6px;
             background: var(--primary-cyan);
             opacity: 0.6;
         }
+
         .deco-bl {
-            bottom: -1px; left: -1px;
-            width: 20px; height: 20px;
+            bottom: -1px;
+            left: -1px;
+            width: 20px;
+            height: 20px;
             border-bottom: 4px solid var(--primary-cyan);
             border-left: 4px solid var(--primary-cyan);
             opacity: 0.6;
         }
 
         .deco-br {
-            bottom: -1px; right: -1px;
-            width: 40px; height: 40px;
+            bottom: -1px;
+            right: -1px;
+            width: 40px;
+            height: 40px;
             border-bottom: 2px solid var(--primary-cyan);
             border-right: 2px solid var(--primary-cyan);
             opacity: 0.6;
         }
-        
+
         .deco-br::after {
             position: absolute;
-            bottom: 5px; right: 5px;
+            bottom: 5px;
+            right: 5px;
             font-size: 8px;
             color: var(--primary-cyan);
             font-family: monospace;
         }
 
         /* 悬停时角落发光 */
-        .card:hover .deco-tl, .card:hover .deco-br {
-            width: 100%; height: 100%; opacity: 0.6;
+        .card:hover .deco-tl,
+        .card:hover .deco-br {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
         }
 
         /* Action Items */
@@ -257,8 +284,8 @@
             font-size: 0.75rem;
             color: var(--text-dim);
             line-height: 1.5;
-            text-align: left; 
-            width: fit-content; 
+            text-align: left;
+            width: fit-content;
             max-width: 100%;
             margin-top: 6px;
             padding-left: 10px;
@@ -286,11 +313,27 @@
             transition: 0.3s;
             cursor: pointer;
         }
+
         .output-icon::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 6px; border-top: 1px solid var(--text-dim); border-left: 1px solid var(--text-dim);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            border-top: 1px solid var(--text-dim);
+            border-left: 1px solid var(--text-dim);
         }
+
         .output-icon::after {
-            content: ''; position: absolute; bottom: 0; right: 0; width: 6px; height: 6px; border-bottom: 1px solid var(--text-dim); border-right: 1px solid var(--text-dim);
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 6px;
+            height: 6px;
+            border-bottom: 1px solid var(--text-dim);
+            border-right: 1px solid var(--text-dim);
         }
 
         .output-icon:hover {
@@ -299,7 +342,8 @@
         }
 
         .output-icon svg {
-            width: 36px; height: 36px;
+            width: 36px;
+            height: 36px;
             fill: var(--primary-cyan);
         }
 
@@ -309,9 +353,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-
     </style>
 </head>
+
 <body>
 
     <header>
@@ -322,10 +366,15 @@
     <div class="top-node">
         <div class="tech-box">
             <h3>剪藏至 Obsidian</h3>
-            <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent); width: 80%; margin: 5px auto; opacity: 0.6;"></div>
-            <div style="font-size:0.85rem;  letter-spacing:1px; margin:2px 0; color: var(--text-dim);">[ 完善: 标签 / 链接 ]</div>
+            <div
+                style="height: 1px; background: linear-gradient(90deg, transparent, var(--primary-cyan), transparent); width: 80%; margin: 5px auto; opacity: 0.6;">
+            </div>
+            <div style="font-size:0.85rem;  letter-spacing:1px; margin:2px 0; color: var(--text-dim);">[ 完善: 标签 / 链接 ]
+            </div>
         </div>
-        <div style="position: absolute; left: 50%; bottom: -50px; width: 0.7px; height: 50px; background: linear-gradient(to bottom, var(--primary-cyan), transparent);"></div>
+        <div
+            style="position: absolute; left: 50%; bottom: -50px; width: 0.7px; height: 50px; background: linear-gradient(to bottom, var(--primary-cyan), transparent);">
+        </div>
 
     </div>
 
@@ -341,11 +390,15 @@
             <div class="card-header">
                 <div class="card-title">总结归纳</div>
             </div>
-            <a href="https://gemini.google.com/gem/17Kb6XVUmxwJmA0uanZ2BsGAmC0m2C98K?usp=sharing" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >忠实原文总结</a>
-            <a href="https://poe.com/Rewrite-ADHD" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >为ADHD重写内容</a>
-            <a href="https://poe.com/Summary_SpeechScript" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >重写为演讲提示词</a>
+            <a href="https://gemini.google.com/gem/17Kb6XVUmxwJmA0uanZ2BsGAmC0m2C98K?usp=sharing" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">忠实原文总结</a>
+            <a href="https://gemini.google.com/gem/1nR0tFVq1d213ZullImmySsaTMid4RZOC?usp=sharing" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">为ADHD重写内容</a>
+            <a href="https://gemini.google.com/gem/1HOg8TqclpTGfAoNuWa6KkdWatR0rQugr?usp=sharing" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">重写为演讲提示词</a>
             <div class="action-item">像顶级咨询师一样总结</div>
-            <a href="https://www.perplexity.ai/spaces/xin-xi-jian-dan-hua-pnUanZMbTWOEcSJOauukJQ#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >信息简单化</a>
+            <a href="https://www.perplexity.ai/spaces/xin-xi-jian-dan-hua-pnUanZMbTWOEcSJOauukJQ#0" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">信息简单化</a>
             <div class="action-item">提炼核心洞察</div>
             <div class="action-item">提炼独特观点，及其论证</div>
         </div>
@@ -379,20 +432,27 @@
             <div class="card-header">
                 <div class="card-title">搜索核查</div>
             </div>
-            <a href="https://www.perplexity.ai/spaces/event-overview-shi-jian-gai-sh-SiZpS5SzQxGakWrIBpBkYQ#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >事件概述</a>
-            <a href="https://www.perplexity.ai/spaces/event-search-with-focus-ApEhUwwMT_C.W0orCXgkqQ" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);" >
+            <a href="https://www.perplexity.ai/spaces/event-overview-shi-jian-gai-sh-SiZpS5SzQxGakWrIBpBkYQ#0"
+                class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">事件概述</a>
+            <a href="https://www.perplexity.ai/spaces/event-search-with-focus-ApEhUwwMT_C.W0orCXgkqQ"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan);">
                 <div>搜索事件的某个指定重点</div>
                 <div class="subtext">
                     • 支持 / 反对 / 利益相关方的观点<br>
-                    • 专家意见 &nbsp;&nbsp; &nbsp;&nbsp;  • 媒体观点<br>
+                    • 专家意见 &nbsp;&nbsp; &nbsp;&nbsp; • 媒体观点<br>
                     • 观点演变的时间线、影响因素<br>
                     • 历史沿革的脉络、关键点<br>
                     • 先例事件和相似之处
                 </div>
             </a>
             <div class="action-item">交叉验证 / 证据链核查</div>
-            <a href="https://www.perplexity.ai/spaces/top-10-trending-articles-on-a-r88VBBvLQnOSKhPtzVsmmw" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >话题的十大热门文章</a>
-            <a href="https://www.perplexity.ai/spaces/trending-topics-future-outlook-F.rz6dOAR8qIAtZ_JKS6Cw" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >话题的趋势和展望</a>
+            <a href="https://www.perplexity.ai/spaces/top-10-trending-articles-on-a-r88VBBvLQnOSKhPtzVsmmw"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"
+                ;>话题的十大热门文章</a>
+            <a href="https://www.perplexity.ai/spaces/trending-topics-future-outlook-F.rz6dOAR8qIAtZ_JKS6Cw"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"
+                ;>话题的趋势和展望</a>
         </div>
 
         <!-- Card 4 -->
@@ -405,7 +465,8 @@
             <div class="card-header">
                 <div class="card-title">预测推演</div>
             </div>
-            <a href="https://www.perplexity.ai/spaces/strategic-foresight-yu-ce-tui-U0q7fodtQHeBmtKKymQ1HA#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >
+            <a href="https://www.perplexity.ai/spaces/strategic-foresight-yu-ce-tui-U0q7fodtQHeBmtKKymQ1HA#0"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)" ;>
                 <div>预测推演</div>
                 <div class="subtext">
                     • 全域扫描 / 背景构建<br>
@@ -414,14 +475,17 @@
                     • 战略启示 / 监测体系<br>
                 </div>
             </a>
-            <a href="https://www.perplexity.ai/spaces/zhan-lue-yi-tu-shen-du-tui-yan-VUvz2joDQQaGEk08.i31AQ#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >战略意图推演
+            <a href="https://www.perplexity.ai/spaces/zhan-lue-yi-tu-shen-du-tui-yan-VUvz2joDQQaGEk08.i31AQ#0"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)" ;>战略意图推演
                 <div class="subtext">
                     • 话术脱水与事实还原<br>
                     • 核心意图的多维度穿透<br>
                     • 传导验证与格局推演<br>
                 </div>
             </a>
-            <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >事件结果的概率预测</a>
+            <a href="https://www.perplexity.ai/spaces/probability-spectrum-forecaste-fUae_K30TEicebX9q_hP7g#0"
+                class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"
+                ;>事件结果的概率预测</a>
             <div class="action-item">战略路线的规划和评估
 
             </div>
@@ -442,7 +506,8 @@
             <div class="card-header">
                 <div class="card-title">行业新闻</div>
             </div>
-            <a href="https://poe.com/Strategic-Warning" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >
+            <a href="https://poe.com/Strategic-Warning" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)" ;>
                 <div>行业新闻战略预警速报</div>
                 <div style="font-size:0.85rem;  letter-spacing:1px; margin:2px 0;">[ 电信从业者视角 ]</div>
                 <div class="subtext">
@@ -452,7 +517,8 @@
                     • 后续情报监测
                 </div>
             </a>
-            <a href="https://poe.com/Analyst-Probe" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >
+            <a href="https://poe.com/Analyst-Probe" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)" ;>
                 <div>投资分析师提出犀利质询</div>
                 <div style="font-size:0.85rem;  letter-spacing:1px; margin:2px 0;">[ 对抗性分析 ]</div>
                 <div class="subtext">
@@ -462,7 +528,8 @@
                     • 前瞻性监测 / 动态推演
                 </div>
             </a>
-            <a href="https://poe.com/Strategist-Probe" class="action-item" style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)"; >
+            <a href="https://poe.com/Strategist-Probe" class="action-item"
+                style="text-decoration: none; border-bottom: 1px solid var(--primary-cyan)" ;>
                 <div>战略分析师提出质询</div>
                 <div style="font-size:0.85rem;  letter-spacing:1px; margin:2px 0;">[ 对抗性分析 ]</div>
             </a>
@@ -482,68 +549,76 @@
             <div class="card-header">
                 <div class="card-title">多模输出</div>
             </div>
-            
+
             <div class="multimodal-grid">
                 <div class="output-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9v6H3v-6C3 4.03 7.03 0 12 0s9 4.03 9 9v6h-2V9c0-3.87-3.13-7-7-7zM7 15v6h2v-6H7zm4 0v6h2v-6h-2zm4 0v6h2v-6h-2z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9v6H3v-6C3 4.03 7.03 0 12 0s9 4.03 9 9v6h-2V9c0-3.87-3.13-7-7-7zM7 15v6h2v-6H7zm4 0v6h2v-6h-2zm4 0v6h2v-6h-2z" />
+                    </svg>
                     <span>Podcast</span>
                 </div>
                 <div class="output-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <!-- 顶部主节点 - 方形 -->
-                            <rect x="9.5" y="1.5" width="5" height="5" />
-                            
-                            <!-- 从主节点向下的垂直线 -->
-                            <rect x="11" y="6.5" width="2" height="3.5"/>
-                            
-                            <!-- 水平连接线 -->
-                            <rect x="4" y="10" width="16" height="2"/>
-                            
-                            <!-- 三条垂直线连接到子节点 -->
-                            <rect x="4" y="12" width="2" height="7"/>
-                            <rect x="11" y="12" width="2" height="7"/>
-                            <rect x="18" y="12" width="2" height="7"/>
-                            
-                            <!-- 三个分支节点 - 方形 -->
-                            <rect x="3" y="18.5" width="4" height="4" />
-                            <rect x="10" y="18.5" width="4" height="4" />
-                            <rect x="17" y="18.5" width="4" height="4" />
-                        </svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <!-- 顶部主节点 - 方形 -->
+                        <rect x="9.5" y="1.5" width="5" height="5" />
+
+                        <!-- 从主节点向下的垂直线 -->
+                        <rect x="11" y="6.5" width="2" height="3.5" />
+
+                        <!-- 水平连接线 -->
+                        <rect x="4" y="10" width="16" height="2" />
+
+                        <!-- 三条垂直线连接到子节点 -->
+                        <rect x="4" y="12" width="2" height="7" />
+                        <rect x="11" y="12" width="2" height="7" />
+                        <rect x="18" y="12" width="2" height="7" />
+
+                        <!-- 三个分支节点 - 方形 -->
+                        <rect x="3" y="18.5" width="4" height="4" />
+                        <rect x="10" y="18.5" width="4" height="4" />
+                        <rect x="17" y="18.5" width="4" height="4" />
+                    </svg>
                     <span>MindMap</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M4 4h16v16H4V4m0-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4m5 5l9 5-9 5z"/>
+                        <path
+                            d="M4 4h16v16H4V4m0-2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4m5 5l9 5-9 5z" />
                     </svg>
                     <span>PPT</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        <path
+                            d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
                     </svg>
                     <span>HTML</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m4 18H6V4h7v5h5v11m-2-9H8v2h10v-2m0 4H8v2h10v-2m-6"/>
+                        <path
+                            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m4 18H6V4h7v5h5v11m-2-9H8v2h10v-2m0 4H8v2h10v-2m-6" />
                     </svg>
                     <span>Report</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M22 21H2V3h2v16h2v-9h4v9h2v-12h4v12h2v-7h4v7z"/>
+                        <path d="M22 21H2V3h2v16h2v-9h4v9h2v-12h4v12h2v-7h4v7z" />
                     </svg>
                     <span>Infographic</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V5h4V3H5c-1.1 0-2 .9-2 2zm16-2v2h2c0-1.1-.9-2-2-2zm-8 20h2V1h-2v22zm8-6h2v-2h-2v2zM15 5h2V3h-2v2zm4 8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2z"/>
+                        <path
+                            d="M15 21h2v-2h-2v2zm4-12h2V7h-2v2zM3 5v14c0 1.1.9 2 2 2h4v-2H5V5h4V3H5c-1.1 0-2 .9-2 2zm16-2v2h2c0-1.1-.9-2-2-2zm-8 20h2V1h-2v22zm8-6h2v-2h-2v2zM15 5h2V3h-2v2zm4 8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2z" />
                     </svg>
                     <span>Flash Card</span>
                 </div>
                 <div class="output-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16v16zm-9-2h2v-2h-2v2zm1-12c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                        <path
+                            d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H4V4h16v16zm-9-2h2v-2h-2v2zm1-12c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" />
                     </svg>
                     <span>Quiz</span>
                 </div>
@@ -560,4 +635,5 @@
         });
     </script>
 </body>
+
 </html>
