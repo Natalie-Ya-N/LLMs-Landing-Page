@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,21 +65,21 @@
         }
 
         /* Collapsed State */
-        .card.collapsed ul, 
+        .card.collapsed ul,
         .card.collapsed .bottom-actions {
             display: none;
         }
 
         .card.collapsed {
-            padding-bottom: 10px;  
+            padding-bottom: 10px;
         }
 
         .card.collapsed .card-header {
-            margin-bottom: 5px;  
+            margin-bottom: 5px;
         }
-        
+
         .card-header {
-            cursor: pointer; 
+            cursor: pointer;
             user-select: none;
         }
 
@@ -145,7 +146,7 @@
 
         /* Icon placeholder using pseudo-element */
         a::before {
-            content: '⚡'; 
+            content: '⚡';
             position: absolute;
             left: 0;
             top: 50%;
@@ -171,7 +172,7 @@
             opacity: 0.7;
             font-style: italic;
         }
-        
+
         /* back to top button */
         .bottom-actions {
             margin-top: 15px;
@@ -189,9 +190,9 @@
             border-radius: 4px;
             text-decoration: none;
             display: inline-block;
-            padding-left: 10px; 
+            padding-left: 10px;
         }
-        
+
         .action-btn::before {
             content: none;
         }
@@ -205,7 +206,7 @@
         li.separator {
             margin-top: 7px;
         }
-        
+
         li.separator::before {
             content: '';
             display: block;
@@ -251,13 +252,14 @@
             .grid-container {
                 grid-template-columns: 1fr;
             }
-            
+
             h1 {
                 font-size: 1.5rem;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -267,7 +269,7 @@
 
 
     <div class="grid-container">
-        
+
         <!-- LLMs -->
         <div class="card">
             <div class="card-header">LLMs</div>
@@ -277,13 +279,14 @@
                 <li><a href="https://gemini.google.com/app">Gemini<span class="tag"> by Google</span></a></li>
                 <li><a href="https://www.google.com/finance/beta/">... Google Finance</a></li>
                 <li><a href="https://business.gemini.google/">... Gemini Business</a></li>
-                <li><a href="https://claude.ai/chat/7e6cda4b-e744-4791-ac12-c2866c08235f">Claude<span class="tag"> by Anthropic</span></a></li>
+                <li><a href="https://claude.ai/chat/7e6cda4b-e744-4791-ac12-c2866c08235f">Claude<span class="tag"> by
+                            Anthropic</span></a></li>
                 <li><a href="https://www.meta.ai/">Llama<span class="tag"> by Meta</span></a></li>
                 <li><a href="https://chat.mistral.ai/">Mistral</a></li>
-                <li><a href="https://x.ai/">Grok by xAI</a></li>                
+                <li><a href="https://x.ai/">Grok by xAI</a></li>
                 <li><a href="https://pi.ai/talk">Pi, personal AI</a></li>
                 <li><a href="https://cohere.com/">Cohere</a></li>
-                <li><a href="https://chat.reka.ai/chat">Reka</a></li>  
+                <li><a href="https://chat.reka.ai/chat">Reka</a></li>
             </ul>
         </div>
 
@@ -292,11 +295,11 @@
             <div class="card-header">LLMs <span class="sub-text">China</span></div>
             <ul>
                 <li><a href="https://chat.deepseek.com/">deepseek<span class="tag"></span></a></li>
-                <li><a href="https://tongyi.aliyun.com/">通义千问 <span class="tag">by 阿里</span></a></li>   
-                <li><a href="https://chat.qwen.ai/">... Qwen</a></li>         
-                <li><a href="https://tingwu.aliyun.com/home">... 通义听悟</a></li>         
+                <li><a href="https://tongyi.aliyun.com/">通义千问 <span class="tag">by 阿里</span></a></li>
+                <li><a href="https://chat.qwen.ai/">... Qwen</a></li>
+                <li><a href="https://tingwu.aliyun.com/home">... 通义听悟</a></li>
                 <li><a href="https://www.doubao.com/chat/">豆包 <span class="tag"> by 字节</span></a></li>
-                <li><a href="https://yiyan.baidu.com/">文心一言 <span class="tag"> by 百度</span></a></li>   
+                <li><a href="https://yiyan.baidu.com/">文心一言 <span class="tag"> by 百度</span></a></li>
                 <li><a href="https://www.kimi.com/">Kimi <span class="tag"> by 月之暗面</span></a></li>
             </ul>
         </div>
@@ -306,21 +309,21 @@
             <div class="card-header">Search</div>
             <ul>
                 <li><a href="https://www.perplexity.ai/">Perplexity Search</a></li>
-                <li><a href="https://www.perplexity.ai/finance">... Perplexity Finance</a></li>                
                 <li><a href="https://www.phind.com/search?home=true">Phind</a></li>
                 <li><a href="https://websets.exa.ai/">Exa Websets</a></li>
                 <li><a href="https://exa.ai/search?c=all">Exa Search</a></li>
-                <li><a href="https://kagi.com/">Kagi Search</a></li>                  
-                <li><a href="https://you.com/">YOU.com<br/></a></li>
-                <li><a href="https://iask.ai/">iAsk<br/></a></li>
+                <li><a href="https://kagi.com/">Kagi Search</a></li>
+                <li><a href="https://you.com/">YOU.com<br /></a></li>
+                <li><a href="https://iask.ai/">iAsk<br /></a></li>
                 <li><a href="https://komo.ai/">KOMO Search</a></li>
 
                 <li class="separator"></li>
             </ul>
-            
+
             <div class="bottom-actions">
                 <a href="https://demo.exa.ai/hallucination-detector" class="action-btn">Exa Hallucination Detector</a>
-                <a href="https://poe.com/Search_Planner" class="action-btn">Poe / Search Planner</a>
+                <a href="https://gemini.google.com/gem/1-DZEsZiTcYfC6QA-B1q8tZ-lQRfaXoii?usp=sharing"
+                    class="action-btn">Gem / Search Planner</a>
             </div>
         </div>
 
@@ -328,12 +331,12 @@
         <div class="card">
             <div class="card-header">Search <span class="sub-text">China</span></div>
             <ul>
-                <li><a href="https://felo.ai/search">Felo Search</a></li>   
+                <li><a href="https://felo.ai/search">Felo Search</a></li>
                 <li><a href="https://metaso.cn/">秘塔搜索</a></li>
                 <li><a href="https://n.cn/">纳米搜索<span class="tag">原360搜索</span></a></li>
                 <li><a href="https://search.tiangong.cn/">天工搜索</a></li>
                 <li><a href="https://bochaai.com/">博查搜索</a></li>
-                <li><a href="https://bilin.ai/">Bilin Search</a></li>     
+                <li><a href="https://bilin.ai/">Bilin Search</a></li>
                 <li><a href="https://floatsearch.ai">Float Search</a></li>
             </ul>
         </div>
@@ -344,25 +347,29 @@
             <ul>
 
                 <li><a href="https://lmarena.ai//">LMArena<span class="tag"> by UC Berkeley</span></a></li>
-                <li><a href="https://beta.lmarena.ai/">... LMArena Beta</a></li>
+                <li><a href="https://canaryarena.ai/">... LMArena Canary</a></li>
                 <li><a href="https://huggingface.co/spaces">Hugging Face Spaces</a></li>
-                <li><a href="https://build.nvidia.com/explore/discover">Nvidia Build<span class="tag"> # open-source</span></a></li>
+                <li><a href="https://build.nvidia.com/explore/discover">Nvidia Build<span class="tag"> #
+                            open-source</span></a></li>
                 <li><a href="https://ai.azure.com/"> Azure AI Studio </a></li>
 
                 <li class="separator"></li>
 
                 <li><a href="https://makersuite.google.com/app/prompts/new_freeform">Google AI Studio</a></li>
-                <li><a href="https://labs.google/">Google Labs</a></li>      
-                <li><a href="https://copilot.microsoft.com/labs//">Copilot Labs <span class="tag">by Microsoft</span> </a></li>                           
+                <li><a href="https://labs.google/">Google Labs</a></li>
+                <li><a href="https://copilot.microsoft.com/labs//">Copilot Labs <span class="tag">by Microsoft</span>
+                    </a></li>
                 <li><a href="https://platform.openai.com/">OpenAI Playground</a></li>
                 <li><a href="https://console.groq.com/playground">Groq Playground</a></li>
-                <li><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic Console for Claude</a></li>
+                <li><a href="https://console.anthropic.com/login?selectAccount=true&returnTo=%2Fdashboard">Anthropic
+                        Console for Claude</a></li>
                 <li><a href="https://labs.perplexity.ai/">Perplexity Labs</a></li>
                 <li><a href="https://dashboard.cohere.com/playground/chat">Cohere Playground</a></li>
-                
+
                 <li class="separator"></li>
 
-                <li><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span class="tag"> by Hugging Face</span></a></li> 
+                <li><a href="https://huggingface.co/spaces/TTS-AGI/TTS-Arena">TTS Arena<span class="tag"> by Hugging
+                            Face</span></a></li>
 
             </ul>
         </div>
@@ -376,7 +383,7 @@
 
                 <li class="separator"></li>
 
-                <li><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li> 
+                <li><a href="https://opal.withgoogle.com/?mode=canvas">Google Opal</a></li>
                 <li><a href="https://www.genspark.ai/">Genspark</a></li>
                 <li><a href="https://mulerun.com/">MuleRun</a></li>
 
@@ -393,7 +400,7 @@
         <div class="card">
             <div class="card-header">API & APP</div>
             <ul>
-                <li><a href="https://openrouter.ai/">OpenRouter</a></li>      
+                <li><a href="https://openrouter.ai/">OpenRouter</a></li>
                 <li><a href="https://groq.com/">Groq<span class="tag"> # open-source</span></a></li>
                 <li><a href="https://inference.cerebras.ai/">Cerebras<span class="tag"> # open-source</span></a></li>
                 <li><a href="https://cloud.sambanova.ai/">SambaNova<span class="tag"> # open-source</span></a></li>
@@ -419,7 +426,7 @@
 
                 <li><a href="https://www.beebee.ai/">BeeBee</a></li>
                 <li><a href="https://reportify.cc/">Reportify</a></li>
-                <li><a href="https://www.secinsights.ai/">SEC Insights</a></li>   
+                <li><a href="https://www.secinsights.ai/">SEC Insights</a></li>
 
             </ul>
         </div>
@@ -429,9 +436,10 @@
             <div class="card-header">Reading & YouTube</div>
             <ul>
 
-                <li><a href="https://poe.com/Summary_toPPT_ZH">Poe /  Summary in PPT</a></li>   
-                <li><a href="https://chat.openai.com/g/g-ujcnMvq3H">GPTs / Summary in PPT</a></li>        
-                <li><a href="https://gemini.google.com/gem/17Kb6XVUmxwJmA0uanZ2BsGAmC0m2C98K?usp=sharing">Gemini Gem / Summary in PPT</a></li>      
+                <li><a href="https://poe.com/Summary_toPPT_ZH">Poe / Summary in PPT</a></li>
+                <li><a href="https://chat.openai.com/g/g-ujcnMvq3H">GPTs / Summary in PPT</a></li>
+                <li><a href="https://gemini.google.com/gem/17Kb6XVUmxwJmA0uanZ2BsGAmC0m2C98K?usp=sharing">Gemini Gem /
+                        Summary in PPT</a></li>
 
                 <li class="separator"></li>
 
@@ -452,12 +460,15 @@
         <div class="card">
             <div class="card-header">Learning</div>
             <ul>
-                <li><a href="https://notebooklm.google/?location=us-only">NotebookLM<span class="tag"> by Google </span></a></li>
+                <li><a href="https://notebooklm.google/?location=us-only">NotebookLM<span class="tag"> by Google
+                        </span></a></li>
                 <li><a href="https://learning.google.com/experiments/learn-about/signup">Learn About by Google</a></li>
-                <li><a href="https://illuminate.withgoogle.com/home"> Illuminate <span class="tag"> by Google</span> </a></li>
+                <li><a href="https://illuminate.withgoogle.com/home"> Illuminate <span class="tag"> by Google</span>
+                    </a></li>
                 <li><a href="https://www.atlas.org/home">Atlas.org </a></li>
-                <li><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners">GPTs / Paper Sum. for Learners</a></li>
-   
+                <li><a href="https://chat.openai.com/g/g-M5VqHMebY-academic-paper-summary-for-learners">GPTs / Paper
+                        Sum. for Learners</a></li>
+
                 <li><a href="https://typeset.io/">SciSpace</a></li>
                 <li><a href="https://consensus.app/search/">Consensus</a></li>
                 <li><a href="https://www.chatpdf.com/">ChatPDF</a></li>
@@ -469,10 +480,11 @@
 
                 <li class="separator"></li>
 
-                <li><a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus">GPTs / Consensus</a></li>    
-                <li><a href="https://chat.openai.com/g/g-NgAcklHd8-scispace">GPTs / SciSpace</a></li>    
-                <li><a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai">GPTs / ScholarAI</a></li>    
-                <li><a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant">GPTs / AskYourPDF</a></li>    
+                <li><a href="https://chat.openai.com/g/g-bo0FiWLY7-consensus">GPTs / Consensus</a></li>
+                <li><a href="https://chat.openai.com/g/g-NgAcklHd8-scispace">GPTs / SciSpace</a></li>
+                <li><a href="https://chat.openai.com/g/g-L2HknCZTC-scholarai">GPTs / ScholarAI</a></li>
+                <li><a href="https://chat.openai.com/g/g-UfFxTDMxq-askyourpdf-research-assistant">GPTs / AskYourPDF</a>
+                </li>
 
             </ul>
         </div>
@@ -482,18 +494,20 @@
             <div class="card-header">Writing & Coding</div>
             <ul>
                 <li><a href="https://app.wordtune.com/"> Wordtune <span class="tag"> by AI21 Labs</span></a></li>
-                <li><a href="https://poe.com/EmailResponder_YAYA">Poe / EmailResponder</a></li>
-                <li><a href="https://poe.com/Correct_English_YAYA">Poe / Correct English</a></li>
-                <li><a href="https://poe.com/10_Alt_Phrasings">Poe / 10 Alt. Phrasings</a></li>
+                <li><a href="https://gemini.google.com/gem/1t7fWty9RI-E7PlKHFVcxIv3E0r8wycba?usp=sharing">Gem /
+                        EmailResponder</a></li>
+                <li><a href="https://gemini.google.com/gem/1KhfJmS4xDgy6-9bnzThPCzMbIZAb_erT?usp=sharing">Gem / Correct
+                        English</a></li>
+                <li><a href="https://gemini.google.com/gem/1jUbx7rwmAZlWMKSsQtpUoStcGPzrVBRo?usp=sharing">Gem / 10 Alt.
+                        Phrasings</a></li>
 
                 <li class="separator"></li>
 
-
                 <li><a href="https://firebase.studio/">Firebase <span class="tag"> by Google</span></a></li>
-                <li><a href="https://codewiki.google/">Code Wiki<span class="tag"> by Google</span></a></a></li>                         
-                <li><a href="https://deepwiki.com/">DeepWiki</a></li>                
+                <li><a href="https://codewiki.google/">Code Wiki<span class="tag"> by Google</span></a></a></li>
+                <li><a href="https://deepwiki.com/">DeepWiki</a></li>
                 <li><a href="https://devv.ai/zh">DEVV</a></li>
-         
+
                 <li><a href="https://v0.dev/"> v0 <span class="tag"> by Vercel</span></a></li>
                 <li><a href="https://www.blackbox.ai/">Blackbox</a></li>
                 <li><a href="https://jit.codes/">Jit Codes</a></li>
@@ -508,12 +522,14 @@
                 <li><a href="https://www.futurepedia.io/">Futurepedia</a></li>
                 <li><a href="https://www.futuretools.io/">Furure Tools</a></li>
                 <li><a href="https://opentools.ai/">Open Tools</a></li>
-                <li><a href="https://theresanaiforthat.com/">There's an AI for That</a></li>           
+                <li><a href="https://theresanaiforthat.com/">There's an AI for That</a></li>
 
                 <li class="separator"></li>
 
-                <li><a href="https://alternativeto.net/">AlternativeTo<span class="tag"> # find alternatives</span></a></li>
-                <li><a href="https://www.similarsites.com/">SimilarSites<span class="tag"> # find alternatives</span></a></li>
+                <li><a href="https://alternativeto.net/">AlternativeTo<span class="tag"> # find alternatives</span></a>
+                </li>
+                <li><a href="https://www.similarsites.com/">SimilarSites<span class="tag"> # find
+                            alternatives</span></a></li>
 
             </ul>
         </div>
@@ -523,15 +539,17 @@
             <div class="card-header">Cloud Console</div>
             <ul>
                 <li><a href="https://portal.azure.com/#home">Azure<span class="tag"> by Micorosft</span></a></li>
-                <li><a href="https://console.cloud.google.com/vertex-ai?hl=en&project=turing-poet-416719">Vertex<span class="tag"> by Google</span></a>
-                <li><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span class="tag"> by Amazon</span></a>
+                <li><a href="https://console.cloud.google.com/vertex-ai?hl=en&project=turing-poet-416719">Vertex<span
+                            class="tag"> by Google</span></a>
+                <li><a href="https://eu-central-1.console.aws.amazon.com/bedrock/home?region=eu-central-1#/">Bedrock<span
+                            class="tag"> by Amazon</span></a>
                 <li><a href="https://cloud.llamaindex.ai/"> Llama Cloud <span class="tag"> by Meta</span></a>
                 <li><a href="https://www.netlify.com/">Netlify</a></li>
                 <li><a href="https://www.cloudflare.com/en-gb/">Cloudflare</a></li>
                 <li><a href="https://vercel.com/">Vercel</a></li>
             </ul>
         </div>
-        
+
     </div>
 
     <footer>
@@ -545,7 +563,7 @@
         let mybutton = document.getElementById("backToTop");
 
         // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function() {scrollFunction()};
+        window.onscroll = function () { scrollFunction() };
 
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -574,7 +592,7 @@
             if (toggleAllBtn) {
                 toggleAllBtn.addEventListener('click', () => {
                     isAllCollapsed = !isAllCollapsed;
-                    
+
                     if (isAllCollapsed) {
                         cards.forEach(card => card.classList.add('collapsed'));
                         toggleAllBtn.textContent = "Expand All";
@@ -592,7 +610,7 @@
                     const rowTop = card.offsetTop;
                     const tolerance = 10; // Tolerance for slight misalignments
                     const rowCards = cards.filter(c => Math.abs(c.offsetTop - rowTop) < tolerance);
-                    
+
                     if (card.classList.contains('collapsed')) {
                         // Expand all in same row
                         rowCards.forEach(c => c.classList.remove('collapsed'));
@@ -604,14 +622,15 @@
             });
         });
 
-    
-    // 卡片内的链接在新窗口打开
-    document.querySelectorAll('.card a').forEach(link => {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-    });
+
+        // 卡片内的链接在新窗口打开
+        document.querySelectorAll('.card a').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
 
     </script>
 
 </body>
+
 </html>
